@@ -1,8 +1,8 @@
 ﻿Imports System.Data
 Imports System.Data.OleDb
-Public Class Form1
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+Public Class formLogIn
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -43,6 +43,7 @@ Public Class Form1
                 End If
             End If
 
+            'Checking user type
         ElseIf cbUser.SelectedItem = "Admin" Then
             'Checking complete input
             If txtUsername.Text = String.Empty Or txtPassword.Text = String.Empty Then
@@ -62,6 +63,7 @@ Public Class Form1
                 End If
             End If
 
+            'Checking user type
         ElseIf cbUser.SelectedItem = "Store" Then
             'Checking complete input
             If txtUsername.Text = String.Empty Or txtPassword.Text = String.Empty Then
