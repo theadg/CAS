@@ -48,7 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -91,6 +93,18 @@
     <Compile Include="formAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="formAdminMStudents.Designer.vb">
+      <DependentUpon>formAdminMStudents.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminMStudents.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminOrder.Designer.vb">
+      <DependentUpon>formAdminOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -113,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAdmin.resx">
       <DependentUpon>formAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminMStudents.resx">
+      <DependentUpon>formAdminMStudents.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -58,6 +58,9 @@ Public Class formLogIn
 
                 If (count > 0) Then
                     MsgBox("Login succeed", MsgBoxStyle.Information)
+                    Dim formAdmin = New formAdmin()
+                    Me.Hide()
+                    formAdmin.Show()
                 Else
                     MsgBox("Account not found check credentials", MsgBoxStyle.Exclamation)
                 End If

@@ -24,19 +24,22 @@ Partial Class formAdmin
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StudentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.homeOrder = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msMStudents = New System.Windows.Forms.ToolStripMenuItem()
         Me.StoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.homeOrder = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.StudentsToolStripMenuItem, Me.StoresToolStripMenuItem, Me.ProductsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.ManageToolStripMenuItem, Me.AccountToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1285, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -47,36 +50,57 @@ Partial Class formAdmin
         Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.HomeToolStripMenuItem.Text = "Home"
         '
-        'StudentsToolStripMenuItem
+        'homeOrder
         '
-        Me.StudentsToolStripMenuItem.Name = "StudentsToolStripMenuItem"
-        Me.StudentsToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.StudentsToolStripMenuItem.Text = "Students"
+        Me.homeOrder.Name = "homeOrder"
+        Me.homeOrder.Size = New System.Drawing.Size(104, 22)
+        Me.homeOrder.Text = "Order"
+        '
+        'ManageToolStripMenuItem
+        '
+        Me.ManageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msMStudents, Me.StoresToolStripMenuItem, Me.ProductsToolStripMenuItem})
+        Me.ManageToolStripMenuItem.Name = "ManageToolStripMenuItem"
+        Me.ManageToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.ManageToolStripMenuItem.Text = "Manage"
+        '
+        'msMStudents
+        '
+        Me.msMStudents.Name = "msMStudents"
+        Me.msMStudents.Size = New System.Drawing.Size(121, 22)
+        Me.msMStudents.Text = "Students"
         '
         'StoresToolStripMenuItem
         '
         Me.StoresToolStripMenuItem.Name = "StoresToolStripMenuItem"
-        Me.StoresToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.StoresToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.StoresToolStripMenuItem.Text = "Stores"
         '
         'ProductsToolStripMenuItem
         '
         Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
-        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
+        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.ProductsToolStripMenuItem.Text = "Products"
         '
-        'homeOrder
+        'AccountToolStripMenuItem
         '
-        Me.homeOrder.Name = "homeOrder"
-        Me.homeOrder.Size = New System.Drawing.Size(180, 22)
-        Me.homeOrder.Text = "Order"
+        Me.AccountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateAccountToolStripMenuItem})
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
+        Me.AccountToolStripMenuItem.Text = "Account"
+        '
+        'UpdateAccountToolStripMenuItem
+        '
+        Me.UpdateAccountToolStripMenuItem.Name = "UpdateAccountToolStripMenuItem"
+        Me.UpdateAccountToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.UpdateAccountToolStripMenuItem.Text = "Update Account"
         '
         'formAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1285, 679)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.IsMdiContainer = True
         Me.Name = "formAdmin"
         Me.Text = "formAdmin"
         Me.MenuStrip1.ResumeLayout(False)
@@ -88,8 +112,11 @@ Partial Class formAdmin
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents HomeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StudentsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents homeOrder As ToolStripMenuItem
+    Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents msMStudents As ToolStripMenuItem
     Friend WithEvents StoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateAccountToolStripMenuItem As ToolStripMenuItem
 End Class

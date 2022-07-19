@@ -35,6 +35,7 @@ Partial Class formLogIn
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(150, 20)
         Me.txtUsername.TabIndex = 0
+        Me.txtUsername.Text = "admin"
         '
         'txtPassword
         '
@@ -42,6 +43,7 @@ Partial Class formLogIn
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(150, 20)
         Me.txtPassword.TabIndex = 1
+        Me.txtPassword.Text = "password"
         '
         'cbUser
         '
@@ -51,6 +53,7 @@ Partial Class formLogIn
         Me.cbUser.Name = "cbUser"
         Me.cbUser.Size = New System.Drawing.Size(150, 21)
         Me.cbUser.TabIndex = 2
+        Me.cbUser.Text = "Admin"
         '
         'Button1
         '
