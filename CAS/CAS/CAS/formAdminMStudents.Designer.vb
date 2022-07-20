@@ -59,8 +59,8 @@ Partial Class formAdminMStudents
         Me.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvStudent.Location = New System.Drawing.Point(27, 27)
         Me.dgvStudent.Name = "dgvStudent"
-        Me.dgvStudent.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.dgvStudent.Size = New System.Drawing.Size(916, 220)
+        Me.dgvStudent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvStudent.Size = New System.Drawing.Size(927, 220)
         Me.dgvStudent.TabIndex = 0
         '
         'GroupBox1
@@ -268,7 +268,7 @@ Partial Class formAdminMStudents
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(140, 289)
+        Me.btnRefresh.Location = New System.Drawing.Point(41, 408)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
         Me.btnRefresh.TabIndex = 5
