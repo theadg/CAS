@@ -83,6 +83,7 @@ Partial Class Form1
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(186, 58)
         Me.Button3.TabIndex = 1
+        Me.Button3.Text = "Profile"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Label1
