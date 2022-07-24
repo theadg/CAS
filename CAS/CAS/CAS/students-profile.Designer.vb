@@ -27,6 +27,7 @@ Partial Class students_profile
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,12 +78,22 @@ Partial Class students_profile
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "STUDENT NUMBER"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(213, 664)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(95, 32)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "LOGOUT"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'students_profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(320, 726)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
@@ -102,4 +113,5 @@ Partial Class students_profile
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Button2 As Button
 End Class
