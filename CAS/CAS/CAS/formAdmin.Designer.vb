@@ -25,12 +25,14 @@ Partial Class formAdmin
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.homeOrder = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrderHistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMStudents = New System.Windows.Forms.ToolStripMenuItem()
         Me.StoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogoutAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,7 +47,7 @@ Partial Class formAdmin
         '
         'HomeToolStripMenuItem
         '
-        Me.HomeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.homeOrder})
+        Me.HomeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.homeOrder, Me.OrderHistoryToolStripMenuItem})
         Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
         Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.HomeToolStripMenuItem.Text = "Home"
@@ -53,8 +55,14 @@ Partial Class formAdmin
         'homeOrder
         '
         Me.homeOrder.Name = "homeOrder"
-        Me.homeOrder.Size = New System.Drawing.Size(104, 22)
+        Me.homeOrder.Size = New System.Drawing.Size(145, 22)
         Me.homeOrder.Text = "Order"
+        '
+        'OrderHistoryToolStripMenuItem
+        '
+        Me.OrderHistoryToolStripMenuItem.Name = "OrderHistoryToolStripMenuItem"
+        Me.OrderHistoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.OrderHistoryToolStripMenuItem.Text = "Order History"
         '
         'ManageToolStripMenuItem
         '
@@ -66,24 +74,24 @@ Partial Class formAdmin
         'msMStudents
         '
         Me.msMStudents.Name = "msMStudents"
-        Me.msMStudents.Size = New System.Drawing.Size(121, 22)
+        Me.msMStudents.Size = New System.Drawing.Size(180, 22)
         Me.msMStudents.Text = "Students"
         '
         'StoresToolStripMenuItem
         '
         Me.StoresToolStripMenuItem.Name = "StoresToolStripMenuItem"
-        Me.StoresToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.StoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StoresToolStripMenuItem.Text = "Stores"
         '
         'ProductsToolStripMenuItem
         '
         Me.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem"
-        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.ProductsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProductsToolStripMenuItem.Text = "Products"
         '
         'AccountToolStripMenuItem
         '
-        Me.AccountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateAccountToolStripMenuItem})
+        Me.AccountToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateAccountToolStripMenuItem, Me.LogoutAccountToolStripMenuItem})
         Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
         Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.AccountToolStripMenuItem.Text = "Account"
@@ -91,8 +99,14 @@ Partial Class formAdmin
         'UpdateAccountToolStripMenuItem
         '
         Me.UpdateAccountToolStripMenuItem.Name = "UpdateAccountToolStripMenuItem"
-        Me.UpdateAccountToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.UpdateAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UpdateAccountToolStripMenuItem.Text = "Update Account"
+        '
+        'LogoutAccountToolStripMenuItem
+        '
+        Me.LogoutAccountToolStripMenuItem.Name = "LogoutAccountToolStripMenuItem"
+        Me.LogoutAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogoutAccountToolStripMenuItem.Text = "Logout Account"
         '
         'formAdmin
         '
@@ -119,4 +133,6 @@ Partial Class formAdmin
     Friend WithEvents ProductsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UpdateAccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrderHistoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogoutAccountToolStripMenuItem As ToolStripMenuItem
 End Class

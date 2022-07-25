@@ -93,6 +93,24 @@
     <Compile Include="formAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="formAdminAccount.Designer.vb">
+      <DependentUpon>formAdminAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminMProduct.Designer.vb">
+      <DependentUpon>formAdminMProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminMProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminMStore.Designer.vb">
+      <DependentUpon>formAdminMStore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminMStore.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formAdminMStudents.Designer.vb">
       <DependentUpon>formAdminMStudents.vb</DependentUpon>
     </Compile>
@@ -103,6 +121,54 @@
       <DependentUpon>formAdminOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="formAdminOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminOrderHistory.Designer.vb">
+      <DependentUpon>formAdminOrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminOrderHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminOrderPopUp.Designer.vb">
+      <DependentUpon>formAdminOrderPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formAdminOrderPopUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formNotify.Designer.vb">
+      <DependentUpon>formNotify.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formNotify.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStore.Designer.vb">
+      <DependentUpon>formStore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStoreAccount.Designer.vb">
+      <DependentUpon>formStoreAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStoreAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStoreMActiveOrder.Designer.vb">
+      <DependentUpon>formStoreMActiveOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStoreMActiveOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStoreMCompleteOrder.Designer.vb">
+      <DependentUpon>formStoreMCompleteOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStoreMCompleteOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStoreMInventory.Designer.vb">
+      <DependentUpon>formStoreMInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStoreMInventory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -129,8 +195,41 @@
     <EmbeddedResource Include="formAdmin.resx">
       <DependentUpon>formAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formAdminAccount.resx">
+      <DependentUpon>formAdminAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminMProduct.resx">
+      <DependentUpon>formAdminMProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminMStore.resx">
+      <DependentUpon>formAdminMStore.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAdminMStudents.resx">
       <DependentUpon>formAdminMStudents.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminOrder.resx">
+      <DependentUpon>formAdminOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminOrderHistory.resx">
+      <DependentUpon>formAdminOrderHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminOrderPopUp.resx">
+      <DependentUpon>formAdminOrderPopUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formNotify.resx">
+      <DependentUpon>formNotify.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStore.resx">
+      <DependentUpon>formStore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStoreAccount.resx">
+      <DependentUpon>formStoreAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStoreMActiveOrder.resx">
+      <DependentUpon>formStoreMActiveOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStoreMInventory.resx">
+      <DependentUpon>formStoreMInventory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

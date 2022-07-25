@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class formAdminMStudents
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class formAdminMStudents
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formAdminMStudents))
         Me.dgvStudent = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbStudCourse = New System.Windows.Forms.ComboBox()
@@ -56,11 +57,14 @@ Partial Class formAdminMStudents
         '
         'dgvStudent
         '
+        Me.dgvStudent.AllowUserToAddRows = False
+        Me.dgvStudent.AllowUserToDeleteRows = False
         Me.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvStudent.Location = New System.Drawing.Point(27, 27)
         Me.dgvStudent.Name = "dgvStudent"
+        Me.dgvStudent.ReadOnly = True
         Me.dgvStudent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvStudent.Size = New System.Drawing.Size(927, 220)
+        Me.dgvStudent.Size = New System.Drawing.Size(1177, 220)
         Me.dgvStudent.TabIndex = 0
         '
         'GroupBox1
@@ -278,9 +282,11 @@ Partial Class formAdminMStudents
         'pbStudPic
         '
         Me.pbStudPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbStudPic.ErrorImage = CType(resources.GetObject("pbStudPic.ErrorImage"), System.Drawing.Image)
         Me.pbStudPic.Location = New System.Drawing.Point(1000, 253)
         Me.pbStudPic.Name = "pbStudPic"
         Me.pbStudPic.Size = New System.Drawing.Size(204, 161)
+        Me.pbStudPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbStudPic.TabIndex = 20
         Me.pbStudPic.TabStop = False
         '
