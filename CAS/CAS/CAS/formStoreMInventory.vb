@@ -146,9 +146,9 @@ Public Class formStoreMInventory
 
 
             con.Open()
-            sql = "INSERT INTO PRODUCTtbl([productName],[productDesc],[productQty],[productPrice],[productPhoto]) 
-                    VALUES (@productName,@productDesc, @productQty, @productPrice, @productPhoto)"
-            'cmd.Parameters.AddWithValue("@storeID", CType(txtStoreIDreal.Text, Integer))
+            sql = "INSERT INTO PRODUCTtbl([storeID],[productName],[productDesc],[productQty],[productPrice],[productPhoto]) 
+                    VALUES (@storeID,@productName,@productDesc, @productQty, @productPrice, @productPhoto)"
+            cmd.Parameters.AddWithValue("@storeID", CType(lblStoreID.Text, Integer))
             cmd.Parameters.AddWithValue("@productName", CType(txtProdName.Text, String))
             cmd.Parameters.AddWithValue("@productDesc", CType(txtProdDesc.Text, String))
             cmd.Parameters.AddWithValue("@productQty", CType(txtProdQty.Text, Integer))

@@ -226,11 +226,11 @@ Public Class formStoreMActiveOrder
         'updateQty()
         loadStoreProducts()
     End Sub
-
-    Private Sub btnUpdateQty_Click(sender As Object, e As EventArgs) Handles btnUpdateQty.Click
-        getQty()
-        updateQty()
-    End Sub
+    'turned off kasi nakakalito
+    'Private Sub btnUpdateQty_Click(sender As Object, e As EventArgs) Handles btnUpdateQty.Click
+    '    getQty()
+    '    updateQty()
+    'End Sub
 
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
         btnComplete.Visible = False
