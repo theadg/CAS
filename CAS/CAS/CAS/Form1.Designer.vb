@@ -90,7 +90,7 @@ Partial Class formLogIn
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(347, 275)
+        Me.TextBox1.Location = New System.Drawing.Point(550, 272)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(150, 20)
         Me.TextBox1.TabIndex = 6
@@ -107,7 +107,7 @@ Partial Class formLogIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(976, 450)
+        Me.ClientSize = New System.Drawing.Size(978, 450)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnGetID)

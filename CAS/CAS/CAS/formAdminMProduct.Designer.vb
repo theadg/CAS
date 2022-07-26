@@ -254,7 +254,7 @@ Partial Class formAdminMProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(976, 598)
+        Me.ClientSize = New System.Drawing.Size(977, 598)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtStoreID)
         Me.Controls.Add(Me.btnAddImage)

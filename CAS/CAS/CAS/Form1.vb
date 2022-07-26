@@ -8,8 +8,11 @@ Public Class formLogIn
     End Sub
 
     Dim varAdminUN, varAdminPW, varStoreUN, varStorePW As String 'asdasd
-    Dim varAdminID, varStoreID As Integer
+    Dim varAdminID, varStoreID, varStudID As Integer
 
+    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
+
+    End Sub
 
     Private Sub btnGetID_Click(sender As Object, e As EventArgs) Handles btnGetID.Click
         'getStoreID()
@@ -18,7 +21,7 @@ Public Class formLogIn
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If cbUser.SelectedItem = "Student" Then
-
+            getStudentID()
         ElseIf cbUser.SelectedItem = "Admin" Then
             getAdminID()
         ElseIf cbUser.SelectedItem = "Store" Then
@@ -46,6 +49,9 @@ Public Class formLogIn
 
                 If (count > 0) Then
                     MsgBox("Login succeed", MsgBoxStyle.Information)
+                    Dim formStudentMain = New formStudentMain(varStudID)
+                    Me.Hide()
+                    formStudentMain.Show()
                 Else
 
                     MsgBox("Account not found check credentials", MsgBoxStyle.Exclamation)
@@ -148,24 +154,53 @@ Public Class formLogIn
         End If
 
         Dim sql As String
-            Dim cmd As New OleDb.OleDbCommand
-            Dim dt As New DataTable
-            Dim da As New OleDbDataAdapter
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
 
 
         sql = "SELECT storeID FROM USERstore where storeName='" & txtUsername.Text & "' "
-            cmd.Connection = con
-            cmd.CommandText = sql
-            da.SelectCommand = cmd
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
 
-            da.Fill(dt)
-            DataGridView1.DataSource = dt
+        da.Fill(dt)
+        DataGridView1.DataSource = dt
         If dt.Rows.Count > 0 Then
             varStoreID = dt.Rows(0)(0)
         Else
             varStoreID = 0
         End If
 
+
+
+    End Sub
+
+    Sub getStudentID()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+
+
+        sql = "SELECT studID FROM USERstudent WHERE studName='" & txtUsername.Text & "' AND studPassword='" & txtPassword.Text & "' "
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        da.Fill(dt)
+        DataGridView1.DataSource = dt
+        If dt.Rows.Count > 0 Then
+            varStudID = dt.Rows(0)(0)
+        Else
+            varStudID = 0
+        End If
+
+        TextBox1.Text = varAdminID
 
 
     End Sub

@@ -33,12 +33,15 @@ Partial Class formStoreAccount
         Me.txtLocation = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtContact = New System.Windows.Forms.TextBox()
+        Me.btnAddImage = New System.Windows.Forms.Button()
+        Me.pbStudPic = New System.Windows.Forms.PictureBox()
+        CType(Me.pbStudPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(51, 246)
+        Me.Label3.Location = New System.Drawing.Point(51, 431)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 13
@@ -47,7 +50,7 @@ Partial Class formStoreAccount
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(49, 107)
+        Me.Label2.Location = New System.Drawing.Point(42, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 12
@@ -71,7 +74,7 @@ Partial Class formStoreAccount
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(177, 341)
+        Me.btnSave.Location = New System.Drawing.Point(168, 465)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(138, 23)
         Me.btnSave.TabIndex = 9
@@ -80,14 +83,14 @@ Partial Class formStoreAccount
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(135, 243)
+        Me.txtPassword.Location = New System.Drawing.Point(135, 428)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(138, 20)
         Me.txtPassword.TabIndex = 8
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(135, 107)
+        Me.txtUsername.Location = New System.Drawing.Point(135, 111)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(138, 20)
         Me.txtUsername.TabIndex = 7
@@ -95,7 +98,7 @@ Partial Class formStoreAccount
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(49, 152)
+        Me.Label4.Location = New System.Drawing.Point(49, 337)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 13)
         Me.Label4.TabIndex = 14
@@ -103,7 +106,7 @@ Partial Class formStoreAccount
         '
         'txtLocation
         '
-        Me.txtLocation.Location = New System.Drawing.Point(135, 152)
+        Me.txtLocation.Location = New System.Drawing.Point(135, 337)
         Me.txtLocation.Name = "txtLocation"
         Me.txtLocation.Size = New System.Drawing.Size(138, 20)
         Me.txtLocation.TabIndex = 15
@@ -111,7 +114,7 @@ Partial Class formStoreAccount
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(49, 190)
+        Me.Label5.Location = New System.Drawing.Point(49, 375)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(44, 13)
         Me.Label5.TabIndex = 16
@@ -119,16 +122,36 @@ Partial Class formStoreAccount
         '
         'txtContact
         '
-        Me.txtContact.Location = New System.Drawing.Point(135, 190)
+        Me.txtContact.Location = New System.Drawing.Point(135, 375)
         Me.txtContact.Name = "txtContact"
         Me.txtContact.Size = New System.Drawing.Size(138, 20)
         Me.txtContact.TabIndex = 17
+        '
+        'btnAddImage
+        '
+        Me.btnAddImage.Location = New System.Drawing.Point(135, 298)
+        Me.btnAddImage.Name = "btnAddImage"
+        Me.btnAddImage.Size = New System.Drawing.Size(138, 23)
+        Me.btnAddImage.TabIndex = 43
+        Me.btnAddImage.Text = "ADD IMAGE"
+        Me.btnAddImage.UseVisualStyleBackColor = True
+        '
+        'pbStudPic
+        '
+        Me.pbStudPic.Location = New System.Drawing.Point(109, 148)
+        Me.pbStudPic.Name = "pbStudPic"
+        Me.pbStudPic.Size = New System.Drawing.Size(197, 132)
+        Me.pbStudPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbStudPic.TabIndex = 42
+        Me.pbStudPic.TabStop = False
         '
         'formStoreAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(505, 524)
+        Me.Controls.Add(Me.btnAddImage)
+        Me.Controls.Add(Me.pbStudPic)
         Me.Controls.Add(Me.txtContact)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtLocation)
@@ -142,6 +165,7 @@ Partial Class formStoreAccount
         Me.Controls.Add(Me.txtUsername)
         Me.Name = "formStoreAccount"
         Me.Text = "formStoreAccount"
+        CType(Me.pbStudPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -158,4 +182,6 @@ Partial Class formStoreAccount
     Friend WithEvents txtLocation As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtContact As TextBox
+    Friend WithEvents btnAddImage As Button
+    Friend WithEvents pbStudPic As PictureBox
 End Class

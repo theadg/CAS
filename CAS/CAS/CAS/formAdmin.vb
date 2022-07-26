@@ -50,6 +50,8 @@ Public Class formAdmin
         formAdminOrderHistory.MdiParent = Me
 
         formAdminOrderHistory.lblUserID.Text = adminID
+        'formAdminOrderHistory.lbl 
+        'ADD USERR TYPE HERE
         formAdminOrderHistory.Show()
     End Sub
 
@@ -63,34 +65,45 @@ Public Class formAdmin
         End If
 
         Dim sql As String
-            Dim cmd As New OleDb.OleDbCommand
+        Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
 
 
-
-        sql = "SELECT adminOrder FROM USERadmin WHERE adminID=" & Val(adminID) & ""
-        cmd.Connection = con
-            cmd.CommandText = sql
+        sql = "SELECT adminOrder FROM USERadmin WHERE adminID=" & Val(adminID)
+            cmd.Connection = con
+            cmd.CommandText = Sql
 
             da.SelectCommand = cmd
             da.Fill(dt)
 
             adminOrder = dt.Rows(0)(0)
-        'DataGridView5.DataSource = dt
-        If adminOrder > 0 Then
-            Dim formNotify = New formNotify
-            formNotify.MdiParent = Me
-            formNotify.lblUserType.Text = "Admin"
-            formNotify.lbluserID.Text = adminID
-            formNotify.Show()
-        End If
+
+
+            If adminOrder > 0 Then
+                Dim formNotify = New formNotify
+                formNotify.MdiParent = Me
+                formNotify.lblUserType.Text = "Admin"
+                formNotify.lbluserID.Text = adminID
+                formNotify.Show()
+            End If
 
     End Sub
 
     Private Sub LogoutAccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutAccountToolStripMenuItem.Click
         formLogIn.Show()
         Me.Close()
+    End Sub
+
+    Private Sub StoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StoresToolStripMenuItem.Click
+        Dim formAdminMStore = New formAdminMStore
+        formAdminMStore.MdiParent = Me
+
+        formAdminMStore.Show()
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
     End Sub
 
     Private Sub UpdateAccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateAccountToolStripMenuItem.Click

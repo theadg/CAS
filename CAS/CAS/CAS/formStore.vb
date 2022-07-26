@@ -63,4 +63,8 @@ Public Class formStore
         formStoreSales.lblStoreID.text = storeID
         formStoreSales.Show()
     End Sub
+
+    Private Sub InventoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventoryToolStripMenuItem.Click
+
+    End Sub
 End Class

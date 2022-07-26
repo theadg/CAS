@@ -55,13 +55,13 @@ Partial Class formAdmin
         'homeOrder
         '
         Me.homeOrder.Name = "homeOrder"
-        Me.homeOrder.Size = New System.Drawing.Size(145, 22)
+        Me.homeOrder.Size = New System.Drawing.Size(180, 22)
         Me.homeOrder.Text = "Order"
         '
         'OrderHistoryToolStripMenuItem
         '
         Me.OrderHistoryToolStripMenuItem.Name = "OrderHistoryToolStripMenuItem"
-        Me.OrderHistoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.OrderHistoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OrderHistoryToolStripMenuItem.Text = "Order History"
         '
         'ManageToolStripMenuItem
@@ -99,13 +99,13 @@ Partial Class formAdmin
         'UpdateAccountToolStripMenuItem
         '
         Me.UpdateAccountToolStripMenuItem.Name = "UpdateAccountToolStripMenuItem"
-        Me.UpdateAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UpdateAccountToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.UpdateAccountToolStripMenuItem.Text = "Update Account"
         '
         'LogoutAccountToolStripMenuItem
         '
         Me.LogoutAccountToolStripMenuItem.Name = "LogoutAccountToolStripMenuItem"
-        Me.LogoutAccountToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogoutAccountToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.LogoutAccountToolStripMenuItem.Text = "Logout Account"
         '
         'formAdmin

@@ -1,9 +1,13 @@
 ﻿Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
-Public Class formAdminOrderHistory
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
 
+Public Class formStudentOrderHistory
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Private Sub formStudentOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadActiveOrders()
+        loadCompletedOrders()
+    End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim orderID As Integer = DataGridView1.CurrentRow.Cells(0).Value
         txtOrderID.Text = orderID
@@ -35,9 +39,8 @@ Public Class formAdminOrderHistory
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
-            Dim userType As String = "Student"
             con.Open()
-            sql = "Select * from ORDERactive WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
+            sql = "Select * from ORDERactive WHERE userID=" & Val(lblUserID.Text)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
@@ -55,9 +58,8 @@ Public Class formAdminOrderHistory
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
-            Dim userType As String = "Student"
             con.Open()
-            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
+            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
@@ -103,4 +105,5 @@ Public Class formAdminOrderHistory
             pbProd.Image = pbProd.ErrorImage
         End If
     End Sub
+
 End Class

@@ -57,7 +57,12 @@ Public Class formNotify
 
     Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
         removeOrders()
-        removeNotif()
+        If lblUserType.Text = "Admin" Then
+            removeNotifAdmin()
+        ElseIf lblUserType.Text = "Student" Then
+            removeNotifStud()
+        End If
+
         Me.Close()
     End Sub
     Sub removeOrders()
@@ -82,7 +87,7 @@ Public Class formNotify
 
         DataGridView1.DataSource = dt
     End Sub
-    Sub removeNotif()
+    Sub removeNotifAdmin()
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -102,6 +107,34 @@ Public Class formNotify
         Dim i = cmd.ExecuteNonQuery()
         If i > 0 Then
             MsgBox("CHECK FUCKING USERADMIN")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
+        'Catch ex As Exception
+        '    'MsgBox(ex.Message)
+        'End Try
+
+    End Sub
+    Sub removeNotifStud()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        'Try
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        Dim updateNum As Integer = 0
+
+        sql = "UPDATE USERstudent SET studOrder=@studOrder WHERE studID=" & Val(lbluserID.Text)
+        cmd.Parameters.Add(New OleDbParameter("@studOrder", CType(updateNum, Integer)))
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            MsgBox("Student unnotified")
         Else
             MsgBox("No record has been UPDATED!")
         End If

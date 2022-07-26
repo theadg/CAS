@@ -28,42 +28,48 @@ Public Class formStoreMActiveOrder
     End Sub
 
     Sub loadActiveOrders()
-        Try
-            Dim sql As String
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
-            con.Open()
-            sql = "Select * from ORDERactive WHERE storeID=" & Val(stID)
+        'con.Open()
+        sql = "Select * from ORDERactive WHERE storeID=" & Val(stID)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
 
             da.Fill(dt)
             DataGridView1.DataSource = dt
-        Catch ex As Exception
-            ' MsgBox(ex.Message)
-        End Try
-        con.Close()
+        'Catch ex As Exception
+        '    ' MsgBox(ex.Message)
+        'End Try
+        'con.Close()
     End Sub
     Sub loadCompleteOrders()
-        Try
-            Dim sql As String
-            Dim cmd As New OleDb.OleDbCommand
-            Dim dt As New DataTable
-            Dim da As New OleDbDataAdapter
+        If con.State = ConnectionState.Closed Then
             con.Open()
-            sql = "Select * from ORDERcompleteNOTIF WHERE storeID=" & Val(stID)
-            cmd.Connection = con
-            cmd.CommandText = sql
-            da.SelectCommand = cmd
+        End If
+        ' Try
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        'con.Open()
+        sql = "Select * from ORDERcompleteNOTIF WHERE storeID=" & Val(stID)
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
 
-            da.Fill(dt)
-            DataGridView2.DataSource = dt
-        Catch ex As Exception
-            'MsgBox(ex.Message)
-        End Try
-        con.Close()
+        da.Fill(dt)
+        DataGridView2.DataSource = dt
+        'Catch ex As Exception
+        '    'MsgBox(ex.Message)
+        'End Try
+        'con.Close()
     End Sub
     Sub loadStoreData()
         Try
@@ -334,11 +340,20 @@ Public Class formStoreMActiveOrder
     End Sub
 
     Private Sub btnNotify_Click(sender As Object, e As EventArgs) Handles btnNotify.Click
-        notifyUser()
-        removeOrderforNotif()
-        transferNotifOrder()
+        If userType = "Student" Then
+            notifyUserStudent()
+            removeOrderforNotif()
+            transferNotifOrder()
 
-        loadCompleteOrders()
+            loadCompleteOrders()
+        ElseIf userType = "Admin" Then
+            notifyUserAdmin()
+            removeOrderforNotif()
+            transferNotifOrder()
+
+            loadCompleteOrders()
+        End If
+
     End Sub
     Sub removeOrderforNotif()
         If con.State = ConnectionState.Closed Then
@@ -364,7 +379,7 @@ Public Class formStoreMActiveOrder
             MsgBox("No record has been UPDATED!")
         End If
     End Sub
-    Sub notifyUser()
+    Sub notifyUserAdmin()
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -383,7 +398,36 @@ Public Class formStoreMActiveOrder
 
         Dim i = cmd.ExecuteNonQuery()
         If i > 0 Then
-            MsgBox("CHECK FUCKING USERADMIN")
+            MsgBox("Admin notified")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
+        'Catch ex As Exception
+        '    'MsgBox(ex.Message)
+        'End Try
+
+
+    End Sub
+    Sub notifyUserStudent()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        'Try
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        Dim updateNum As Integer = 69
+
+        sql = "UPDATE USERstudent SET studOrder=@studOrder WHERE studID=" & Val(userID)
+        cmd.Parameters.Add(New OleDbParameter("@studOrder", CType(updateNum, Integer)))
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            MsgBox("User notified")
         Else
             MsgBox("No record has been UPDATED!")
         End If
@@ -448,11 +492,20 @@ Public Class formStoreMActiveOrder
                 userID = dt.Rows(i)(10)
                 arrImage = dt.Rows(i)(11)
 
-                notifyUser()
-                removeOrderforNotif()
-                transferNotifOrder()
+                If userType = "Student" Then
+                    notifyUserStudent()
+                    removeOrderforNotif()
+                    transferNotifOrder()
 
-                loadCompleteOrders()
+                    loadCompleteOrders()
+                ElseIf userType = "Admin" Then
+                    notifyUserAdmin()
+                    removeOrderforNotif()
+                    transferNotifOrder()
+
+                    loadCompleteOrders()
+                End If
+
             Next
         Catch ex As Exception
             ' MsgBox(ex.Message)
@@ -624,9 +677,6 @@ Public Class formStoreMActiveOrder
     End Sub
 
     Sub getOrderData()
-        If con.State = ConnectionState.Closed Then
-            con.Open()
-        End If
 
         Dim sql As String
         Dim cmd As New OleDb.OleDbCommand
@@ -665,16 +715,19 @@ Public Class formStoreMActiveOrder
 
     Dim oldQty As Integer
     Public Sub getQty()
-        Try
-            Dim sql As String
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
 
-            con.Open()
+        'con.Open()
 
 
-            sql = "SELECT productQty,productName,productID FROM PRODUCTtbl WHERE productID=" & Val(prodID)
+        sql = "SELECT productQty,productName,productID FROM PRODUCTtbl WHERE productID=" & Val(prodID)
             cmd.Connection = con
             cmd.CommandText = sql
 
@@ -684,11 +737,11 @@ Public Class formStoreMActiveOrder
             oldQty = dt.Rows(0)(0)
 
 
-            'DataGridView5.DataSource = dt
+        'DataGridView5.DataSource = dt
 
-        Catch ex As Exception
-            ' MsgBox(ex.Message)
-        End Try
+        'Catch ex As Exception
+        '    ' MsgBox(ex.Message)
+        'End Try
 
 
         con.Close()

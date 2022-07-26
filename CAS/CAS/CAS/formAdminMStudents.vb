@@ -109,6 +109,8 @@ Public Class formAdminMStudents
         Finally
             con.Close()
         End Try
+
+        refreshTable()
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
@@ -229,23 +231,26 @@ Public Class formAdminMStudents
     End Sub
 
     Sub refreshTable()
-        Try
-            Dim sql As String
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
-            con.Open()
-            sql = "Select studID, studName, studCourse, studSection, studGender, studReligion, studBirthdate, studContact,studAddress,studPhoto from USERstudent"
+        'con.Open()
+        sql = "Select studID, studName, studCourse, studSection, studGender, studReligion, studBirthdate, studContact,studAddress,studPhoto from USERstudent"
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
 
             da.Fill(dt)
             dgvStudent.DataSource = dt
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        con.Close()
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+        'con.Close()
     End Sub
 
 End Class

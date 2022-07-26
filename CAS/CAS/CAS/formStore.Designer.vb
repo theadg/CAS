@@ -27,11 +27,11 @@ Partial Class formStore
         Me.UpdateInventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageOrdersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewSalesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewSalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewSalesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,7 +54,7 @@ Partial Class formStore
         'UpdateInventoryToolStripMenuItem
         '
         Me.UpdateInventoryToolStripMenuItem.Name = "UpdateInventoryToolStripMenuItem"
-        Me.UpdateInventoryToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.UpdateInventoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UpdateInventoryToolStripMenuItem.Text = "Update Inventory"
         '
         'OrdersToolStripMenuItem
@@ -67,8 +67,14 @@ Partial Class formStore
         'ManageOrdersToolStripMenuItem
         '
         Me.ManageOrdersToolStripMenuItem.Name = "ManageOrdersToolStripMenuItem"
-        Me.ManageOrdersToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ManageOrdersToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.ManageOrdersToolStripMenuItem.Text = "Manage Orders"
+        '
+        'ViewSalesToolStripMenuItem1
+        '
+        Me.ViewSalesToolStripMenuItem1.Name = "ViewSalesToolStripMenuItem1"
+        Me.ViewSalesToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
+        Me.ViewSalesToolStripMenuItem1.Text = "View Sales"
         '
         'AccountToolStripMenuItem
         '
@@ -94,12 +100,6 @@ Partial Class formStore
         Me.ViewSalesToolStripMenuItem.Name = "ViewSalesToolStripMenuItem"
         Me.ViewSalesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ViewSalesToolStripMenuItem.Text = "View Sales"
-        '
-        'ViewSalesToolStripMenuItem1
-        '
-        Me.ViewSalesToolStripMenuItem1.Name = "ViewSalesToolStripMenuItem1"
-        Me.ViewSalesToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.ViewSalesToolStripMenuItem1.Text = "View Sales"
         '
         'formStore
         '
