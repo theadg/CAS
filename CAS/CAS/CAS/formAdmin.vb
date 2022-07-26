@@ -49,6 +49,7 @@ Public Class formAdmin
         Dim formAdminOrderHistory = New formAdminOrderHistory
         formAdminOrderHistory.MdiParent = Me
 
+        formAdminOrderHistory.lblUserID.Text = adminID
         formAdminOrderHistory.Show()
     End Sub
 

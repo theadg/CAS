@@ -38,13 +38,35 @@ Public Class formAdminAccount
         End Try
     End Sub
 
-    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
-        txtID.Clear()
-        txtUsername.Clear()
-        txtPassword.Clear()
-        Me.Close()
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs)
 
+    End Sub
 
-        formLogIn.Show()
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub txtID_TextChanged(sender As Object, e As EventArgs) Handles txtID.TextChanged
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
+
+    End Sub
+
+    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
+
+    End Sub
+
+    Private Sub formAdminAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

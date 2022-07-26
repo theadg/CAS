@@ -54,4 +54,60 @@ Public Class formNotify
             pbProd.Image = pbProd.ErrorImage
         End If
     End Sub
+
+    Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
+        removeOrders()
+        removeNotif()
+        Me.Close()
+    End Sub
+    Sub removeOrders()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+
+
+
+        sql = "DELETE * FROM ORDERnotif WHERE userType='" & (lblUserType.Text) & "' " & "AND userID=" & Val(lbluserID.Text)
+        'sql = "SELECT * FROM ORDERnotif WHERE userID=" & Val(lbluserID.Text)
+        cmd.Connection = con
+        cmd.CommandText = sql
+
+        da.SelectCommand = cmd
+        da.Fill(dt)
+
+        DataGridView1.DataSource = dt
+    End Sub
+    Sub removeNotif()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        'Try
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        Dim updateNum As Integer = 0
+
+        sql = "UPDATE USERadmin SET adminOrder=@adminOrder WHERE adminID=" & Val(lbluserID.Text)
+        cmd.Parameters.Add(New OleDbParameter("@adminOrder", CType(updateNum, Integer)))
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            MsgBox("CHECK FUCKING USERADMIN")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
+        'Catch ex As Exception
+        '    'MsgBox(ex.Message)
+        'End Try
+
+    End Sub
 End Class

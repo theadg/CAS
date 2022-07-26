@@ -42,7 +42,7 @@ Public Class formStoreMActiveOrder
             da.Fill(dt)
             DataGridView1.DataSource = dt
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
         End Try
         con.Close()
     End Sub
@@ -53,7 +53,7 @@ Public Class formStoreMActiveOrder
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
             con.Open()
-            sql = "Select * from ORDERcomplete WHERE storeID=" & Val(stID)
+            sql = "Select * from ORDERcompleteNOTIF WHERE storeID=" & Val(stID)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
@@ -61,7 +61,7 @@ Public Class formStoreMActiveOrder
             da.Fill(dt)
             DataGridView2.DataSource = dt
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
         con.Close()
     End Sub
@@ -80,7 +80,7 @@ Public Class formStoreMActiveOrder
             da.Fill(dt)
             'DataGridView3.DataSource = dt
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
         con.Close()
     End Sub
@@ -143,7 +143,7 @@ Public Class formStoreMActiveOrder
             Next
             txtSalesTotalMain.Text = totalSales
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
         End Try
 
         con.Close()
@@ -165,7 +165,7 @@ Public Class formStoreMActiveOrder
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
 
         con.Close()
@@ -191,7 +191,7 @@ Public Class formStoreMActiveOrder
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
 
         con.Close()
@@ -215,7 +215,7 @@ Public Class formStoreMActiveOrder
 
             'DataGridView4.DataSource = dt
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
 
         con.Close()
@@ -301,23 +301,68 @@ Public Class formStoreMActiveOrder
     Dim orderDate As Date
     Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
 
-        deleteOrder()
-        completeOrder()
-
-
-        loadActiveOrders()
-        loadCompleteOrders()
-
         getQty()
-        updateQty()
+
+        If oldQty = 1 Then
+            MsgBox("Warning, last stock of prodID " + txtProdID.Text + vbCrLf + "Please update inventory")
+            updateQty()
+            deleteOrder()
+
+            completeOrder()
+            completeOrderNotif()
+
+            loadActiveOrders()
+            loadCompleteOrders()
+        ElseIf oldQty > 1 Then
+            updateQty()
+            deleteOrder()
+
+            completeOrder()
+            completeOrderNotif()
+
+            loadActiveOrders()
+            loadCompleteOrders()
+        ElseIf oldQty = 0 Then
+            MsgBox("Please update the inventory of prodID" + txtProdID.Text)
+        End If
+
+
+
+
 
 
     End Sub
 
     Private Sub btnNotify_Click(sender As Object, e As EventArgs) Handles btnNotify.Click
         notifyUser()
-
+        removeOrderforNotif()
         transferNotifOrder()
+
+        loadCompleteOrders()
+    End Sub
+    Sub removeOrderforNotif()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        'Try
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        Dim updateNum As Integer = 69
+
+        sql = "DELETE * FROM ORDERcompleteNOTIF WHERE orderID=" & Val(orderID)
+
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            MsgBox("ORDER REMOVED")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
     End Sub
     Sub notifyUser()
         If con.State = ConnectionState.Closed Then
@@ -350,6 +395,140 @@ Public Class formStoreMActiveOrder
     End Sub
 
 
+    Private Sub btnNotifyAll_Click(sender As Object, e As EventArgs) Handles btnNotifyAll.Click
+        Try
+
+
+            Dim sql As String
+            Dim cmd As New OleDb.OleDbCommand
+            Dim dt As New DataTable
+            Dim da As New OleDbDataAdapter
+            con.Open()
+            sql = "Select * from ORDERcompleteNOTIF WHERE storeID=" & Val(stID)
+            cmd.Connection = con
+            cmd.CommandText = sql
+            da.SelectCommand = cmd
+
+            da.Fill(dt)
+            DataGridView2.DataSource = dt
+
+            Dim rowCount = dt.Rows.Count
+            Dim i = 0
+            'For Each Row As DataRow In dt.Rows
+            '    userID = dt.Rows(i)(10)
+            '    i += 1
+
+            '    notifyUser()
+            '    removeOrderforNotif()
+            '    transferNotifOrder()
+
+            '    loadCompleteOrders()
+            'Next
+            For i = 0 To rowCount '- 1
+                Dim mstream As New System.IO.MemoryStream()
+                If pbProd.Image Is Nothing Then
+                    pbProd.Image = pbProd.ErrorImage
+                End If
+                pbProd.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                arrImage = mstream.GetBuffer()
+                Dim FileSize As UInt32
+                FileSize = mstream.Length
+                mstream.Close()
+
+                orderID = dt.Rows(i)(0)
+                storeID = dt.Rows(i)(1)
+                prodID = dt.Rows(i)(2)
+                orderDate = dt.Rows(i)(3)
+                storeName = dt.Rows(i)(4)
+                prodName = dt.Rows(i)(5)
+                prodPrice = dt.Rows(i)(6)
+                prodTotalPrice = dt.Rows(i)(7)
+                prodQty = dt.Rows(i)(8)
+                userType = dt.Rows(i)(9)
+                userID = dt.Rows(i)(10)
+                arrImage = dt.Rows(i)(11)
+
+                notifyUser()
+                removeOrderforNotif()
+                transferNotifOrder()
+
+                loadCompleteOrders()
+            Next
+        Catch ex As Exception
+            ' MsgBox(ex.Message)
+        End Try
+        con.Close()
+
+    End Sub
+
+    Private Sub btnCompleteAll_Click(sender As Object, e As EventArgs) Handles btnCompleteAll.Click
+        Try
+
+            Dim sql As String
+            Dim cmd As New OleDb.OleDbCommand
+            Dim dt As New DataTable
+            Dim da As New OleDbDataAdapter
+            con.Open()
+            sql = "Select * from ORDERactive WHERE storeID=" & Val(stID)
+            cmd.Connection = con
+            cmd.CommandText = sql
+            da.SelectCommand = cmd
+
+            da.Fill(dt)
+            DataGridView1.DataSource = dt
+
+            Dim rowCount = dt.Rows.Count
+            lblRowCount.Text = rowCount
+
+            Dim i = 0
+
+            For i = 0 To (rowCount)
+
+                orderID = dt.Rows(i)(0)
+                strID = dt.Rows(i)(1)
+                prodID = dt.Rows(i)(2)
+                orderDate = dt.Rows(i)(3)
+                storeName = dt.Rows(i)(4)
+                prodName = dt.Rows(i)(5)
+                prodPrice = dt.Rows(i)(6)
+                prodTotalPrice = dt.Rows(i)(7)
+                prodQty = dt.Rows(i)(8)
+                userType = dt.Rows(i)(9)
+                userID = dt.Rows(i)(10)
+                arrImage = dt.Rows(i)(11)
+
+                getQty()
+
+                If oldQty = 1 Then
+                    MsgBox("Warning, last stock of prodID " + txtProdID.Text + vbCrLf + "Please update inventory")
+                    updateQty()
+                    deleteOrderAll()
+
+                    completeOrder()
+                    'completeOrderAll()
+                    completeOrderNotif()
+
+                    loadActiveOrders()
+                    loadCompleteOrders()
+                ElseIf oldQty > 1 Then
+                    updateQty()
+                    deleteOrderAll()
+
+                    completeOrder()
+                    'completeOrderAll()
+                    completeOrderNotif()
+
+                    loadActiveOrders()
+                    loadCompleteOrders()
+                ElseIf oldQty < 0 Then
+                    MsgBox("Please update the inventory of prodID" + txtProdID.Text)
+                End If
+            Next
+        Catch ex As Exception
+            'MsgBox(ex.Message)
+        End Try
+        con.Close()
+    End Sub
 
     Sub transferNotifOrder()
         If con.State = ConnectionState.Closed Then
@@ -397,7 +576,7 @@ Public Class formStoreMActiveOrder
         If i > 0 Then
             MsgBox("User notified")
         Else
-            MsgBox("No record has been UPDATED!")
+            MsgBox("USER NOT NOTIFIED (DB)!")
         End If
     End Sub
 
@@ -422,6 +601,28 @@ Public Class formStoreMActiveOrder
         End If
 
     End Sub
+    Sub deleteOrderAll()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+
+
+        sql = "DELETE * from ORDERactive WHERE orderID=" & Val(orderID)
+        cmd.Connection = con
+        cmd.CommandText = sql
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            MsgBox("Order completed SUCCESSFULLY")
+        Else
+            MsgBox("No record has been DELETED")
+        End If
+
+    End Sub
+
     Sub getOrderData()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -481,21 +682,25 @@ Public Class formStoreMActiveOrder
             da.Fill(dt)
 
             oldQty = dt.Rows(0)(0)
+
+
             'DataGridView5.DataSource = dt
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
         End Try
+
 
         con.Close()
     End Sub
+    Dim newQty As Integer
     Sub updateQty()
         Try
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
-            Dim newQty As Integer
+
             con.Open()
             sql = "UPDATE PRODUCTtbl SET productQty=@productQty WHERE productID=" & Val(prodID)
             newQty = oldQty - prodQty
@@ -513,10 +718,70 @@ Public Class formStoreMActiveOrder
             'DataGridView5.DataSource = dt
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
 
         con.Close()
+    End Sub
+    Sub completeOrderAll()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        con.Open()
+        sql = "Select * from ORDERactive WHERE storeID=" & Val(stID)
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
+
+        'pic code
+
+        Dim mstream As New System.IO.MemoryStream()
+
+        If pbProd.Image Is Nothing Then
+            pbProd.Image = pbProd.ErrorImage
+        End If
+        pbProd.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+        arrImage = mstream.GetBuffer()
+        Dim FileSize As UInt32
+        FileSize = mstream.Length
+        mstream.Close()
+
+        'end of pic code
+
+
+
+
+        sql = "INSERT INTO ORDERcomplete([orderID],[storeID],[prodID],[orderDate],[storeName],[prodName],[prodPrice],[prodTotalPrice],[prodQty],[userType],[userID],[prodPic]) 
+                    VALUES (@orderID,@storeID,@prodID,@orderDate,@storeName,@prodName,@prodPrice,@prodTotalPrice,@prodQty,@userType,@userID,@prodPic)"
+        cmd.Parameters.Add(New OleDbParameter("@orderID", CType(orderID, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@storeID", CType(strID, Integer))) 'variable passed on
+        cmd.Parameters.Add(New OleDbParameter("@prodID", CType(prodID, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@orderDate", CType(orderDate, Date)))
+        cmd.Parameters.Add(New OleDbParameter("@storeName", CType(storeName, String)))
+        cmd.Parameters.Add(New OleDbParameter("@prodName", CType(prodName, String)))
+        cmd.Parameters.Add(New OleDbParameter("@prodPrice", CType(prodPrice, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@prodTotalPrice", CType(prodTotalPrice, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@prodQty", CType(prodQty, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@userType", CType(userType, String))) 'variable  passed on
+        cmd.Parameters.Add(New OleDbParameter("@userID", CType(userID, Integer))) 'varriable passed on 
+        cmd.Parameters.AddWithValue("@prodPic", arrImage)
+
+
+        cmd.Connection = con
+        cmd.CommandText = sql
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            'MsgBox("ORDER NALIPAT NA")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
+
+
     End Sub
     Sub completeOrder()
         If con.State = ConnectionState.Closed Then
@@ -542,6 +807,57 @@ Public Class formStoreMActiveOrder
 
 
         sql = "INSERT INTO ORDERcomplete([orderID],[storeID],[prodID],[orderDate],[storeName],[prodName],[prodPrice],[prodTotalPrice],[prodQty],[userType],[userID],[prodPic]) 
+                    VALUES (@orderID,@storeID,@prodID,@orderDate,@storeName,@prodName,@prodPrice,@prodTotalPrice,@prodQty,@userType,@userID,@prodPic)"
+        cmd.Parameters.Add(New OleDbParameter("@orderID", CType(orderID, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@storeID", CType(strID, Integer))) 'variable passed on
+        cmd.Parameters.Add(New OleDbParameter("@prodID", CType(prodID, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@orderDate", CType(orderDate, Date)))
+        cmd.Parameters.Add(New OleDbParameter("@storeName", CType(storeName, String)))
+        cmd.Parameters.Add(New OleDbParameter("@prodName", CType(prodName, String)))
+        cmd.Parameters.Add(New OleDbParameter("@prodPrice", CType(prodPrice, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@prodTotalPrice", CType(prodTotalPrice, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@prodQty", CType(prodQty, Integer)))
+        cmd.Parameters.Add(New OleDbParameter("@userType", CType(userType, String))) 'variable  passed on
+        cmd.Parameters.Add(New OleDbParameter("@userID", CType(userID, Integer))) 'varriable passed on 
+        cmd.Parameters.AddWithValue("@prodPic", arrImage)
+
+
+        cmd.Connection = con
+        cmd.CommandText = sql
+
+        Dim i = cmd.ExecuteNonQuery()
+        If i > 0 Then
+            'MsgBox("ORDER NALIPAT NA")
+        Else
+            MsgBox("No record has been UPDATED!")
+        End If
+
+
+    End Sub
+    Sub completeOrderNotif()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+
+        'pic code
+        Dim mstream As New System.IO.MemoryStream()
+
+        If pbProd.Image Is Nothing Then
+            pbProd.Image = pbProd.ErrorImage
+        End If
+        pbProd.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+        arrImage = mstream.GetBuffer()
+        Dim FileSize As UInt32
+        FileSize = mstream.Length
+        mstream.Close()
+
+        'end of pic code
+        Dim sql As String
+        Dim cmd As New OleDb.OleDbCommand
+
+
+
+        sql = "INSERT INTO ORDERcompleteNOTIF([orderID],[storeID],[prodID],[orderDate],[storeName],[prodName],[prodPrice],[prodTotalPrice],[prodQty],[userType],[userID],[prodPic]) 
                     VALUES (@orderID,@storeID,@prodID,@orderDate,@storeName,@prodName,@prodPrice,@prodTotalPrice,@prodQty,@userType,@userID,@prodPic)"
         cmd.Parameters.Add(New OleDbParameter("@orderID", CType(orderID, Integer)))
         cmd.Parameters.Add(New OleDbParameter("@storeID", CType(strID, Integer))) 'variable passed on

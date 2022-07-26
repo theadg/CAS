@@ -171,6 +171,12 @@
     <Compile Include="formStoreMInventory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="formStoreSales.Designer.vb">
+      <DependentUpon>formStoreSales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="formStoreSales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formStoreMInventory.resx">
       <DependentUpon>formStoreMInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStoreSales.resx">
+      <DependentUpon>formStoreSales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

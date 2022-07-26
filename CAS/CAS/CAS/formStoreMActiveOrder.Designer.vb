@@ -23,8 +23,6 @@ Partial Class formStoreMActiveOrder
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnNotify = New System.Windows.Forms.Button()
-        Me.txtSalesTotalMain = New System.Windows.Forms.TextBox()
-        Me.btnUpdateSales = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblStoreID = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -48,41 +46,30 @@ Partial Class formStoreMActiveOrder
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnNotifyAll = New System.Windows.Forms.Button()
+        Me.btnUpdateSales = New System.Windows.Forms.Button()
+        Me.txtSalesTotalMain = New System.Windows.Forms.TextBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lblRowCount = New System.Windows.Forms.Label()
+        Me.btnCompleteAll = New System.Windows.Forms.Button()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbProd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnNotify
         '
         Me.btnNotify.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotify.ForeColor = System.Drawing.Color.Firebrick
-        Me.btnNotify.Location = New System.Drawing.Point(359, 271)
+        Me.btnNotify.Location = New System.Drawing.Point(19, 274)
         Me.btnNotify.Name = "btnNotify"
         Me.btnNotify.Size = New System.Drawing.Size(320, 61)
         Me.btnNotify.TabIndex = 51
         Me.btnNotify.Text = "NOTIFY USER"
         Me.btnNotify.UseVisualStyleBackColor = True
-        '
-        'txtSalesTotalMain
-        '
-        Me.txtSalesTotalMain.Location = New System.Drawing.Point(339, 727)
-        Me.txtSalesTotalMain.Name = "txtSalesTotalMain"
-        Me.txtSalesTotalMain.Size = New System.Drawing.Size(161, 20)
-        Me.txtSalesTotalMain.TabIndex = 47
-        '
-        'btnUpdateSales
-        '
-        Me.btnUpdateSales.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdateSales.ForeColor = System.Drawing.Color.Firebrick
-        Me.btnUpdateSales.Location = New System.Drawing.Point(63, 700)
-        Me.btnUpdateSales.Name = "btnUpdateSales"
-        Me.btnUpdateSales.Size = New System.Drawing.Size(270, 61)
-        Me.btnUpdateSales.TabIndex = 46
-        Me.btnUpdateSales.Text = "UPDATE SALES"
-        Me.btnUpdateSales.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -170,7 +157,7 @@ Partial Class formStoreMActiveOrder
         '
         'txtProdName
         '
-        Me.txtProdName.Location = New System.Drawing.Point(183, 163)
+        Me.txtProdName.Location = New System.Drawing.Point(186, 163)
         Me.txtProdName.Name = "txtProdName"
         Me.txtProdName.Size = New System.Drawing.Size(200, 20)
         Me.txtProdName.TabIndex = 28
@@ -307,27 +294,92 @@ Partial Class formStoreMActiveOrder
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(497, 57)
+        Me.DataGridView1.Location = New System.Drawing.Point(32, 20)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(698, 234)
         Me.DataGridView1.TabIndex = 40
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnNotifyAll)
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Controls.Add(Me.btnNotify)
-        Me.GroupBox2.Location = New System.Drawing.Point(497, 316)
+        Me.GroupBox2.Location = New System.Drawing.Point(530, 391)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(698, 354)
         Me.GroupBox2.TabIndex = 52
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
         '
+        'btnNotifyAll
+        '
+        Me.btnNotifyAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNotifyAll.ForeColor = System.Drawing.Color.Firebrick
+        Me.btnNotifyAll.Location = New System.Drawing.Point(372, 274)
+        Me.btnNotifyAll.Name = "btnNotifyAll"
+        Me.btnNotifyAll.Size = New System.Drawing.Size(320, 61)
+        Me.btnNotifyAll.TabIndex = 52
+        Me.btnNotifyAll.Text = "NOTIFY ALL USERS"
+        Me.btnNotifyAll.UseVisualStyleBackColor = True
+        '
+        'btnUpdateSales
+        '
+        Me.btnUpdateSales.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdateSales.ForeColor = System.Drawing.Color.Firebrick
+        Me.btnUpdateSales.Location = New System.Drawing.Point(63, 693)
+        Me.btnUpdateSales.Name = "btnUpdateSales"
+        Me.btnUpdateSales.Size = New System.Drawing.Size(270, 61)
+        Me.btnUpdateSales.TabIndex = 46
+        Me.btnUpdateSales.Text = "UPDATE SALES"
+        Me.btnUpdateSales.UseVisualStyleBackColor = True
+        '
+        'txtSalesTotalMain
+        '
+        Me.txtSalesTotalMain.Location = New System.Drawing.Point(258, 658)
+        Me.txtSalesTotalMain.Name = "txtSalesTotalMain"
+        Me.txtSalesTotalMain.Size = New System.Drawing.Size(161, 20)
+        Me.txtSalesTotalMain.TabIndex = 47
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.lblRowCount)
+        Me.GroupBox3.Controls.Add(Me.btnCompleteAll)
+        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Location = New System.Drawing.Point(498, 64)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(742, 321)
+        Me.GroupBox3.TabIndex = 53
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "GroupBox3"
+        '
+        'lblRowCount
+        '
+        Me.lblRowCount.AutoSize = True
+        Me.lblRowCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRowCount.ForeColor = System.Drawing.Color.Firebrick
+        Me.lblRowCount.Location = New System.Drawing.Point(41, 257)
+        Me.lblRowCount.Name = "lblRowCount"
+        Me.lblRowCount.Size = New System.Drawing.Size(112, 55)
+        Me.lblRowCount.TabIndex = 54
+        Me.lblRowCount.Text = "NO."
+        '
+        'btnCompleteAll
+        '
+        Me.btnCompleteAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompleteAll.ForeColor = System.Drawing.Color.Firebrick
+        Me.btnCompleteAll.Location = New System.Drawing.Point(181, 260)
+        Me.btnCompleteAll.Name = "btnCompleteAll"
+        Me.btnCompleteAll.Size = New System.Drawing.Size(549, 61)
+        Me.btnCompleteAll.TabIndex = 53
+        Me.btnCompleteAll.Text = "MARK ALL AS COMPLETE"
+        Me.btnCompleteAll.UseVisualStyleBackColor = True
+        '
         'formStoreMActiveOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1267, 783)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.txtSalesTotalMain)
         Me.Controls.Add(Me.btnUpdateSales)
@@ -335,7 +387,6 @@ Partial Class formStoreMActiveOrder
         Me.Controls.Add(Me.lblStoreID)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Name = "formStoreMActiveOrder"
         Me.Text = "formStoreMActiveOrder"
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -344,14 +395,14 @@ Partial Class formStoreMActiveOrder
         CType(Me.pbProd, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnNotify As Button
-    Friend WithEvents txtSalesTotalMain As TextBox
-    Friend WithEvents btnUpdateSales As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents lblStoreID As Label
     Friend WithEvents DataGridView2 As DataGridView
@@ -375,4 +426,10 @@ Partial Class formStoreMActiveOrder
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnNotifyAll As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents btnUpdateSales As Button
+    Friend WithEvents txtSalesTotalMain As TextBox
+    Friend WithEvents btnCompleteAll As Button
+    Friend WithEvents lblRowCount As Label
 End Class

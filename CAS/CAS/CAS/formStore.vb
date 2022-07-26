@@ -39,4 +39,28 @@ Public Class formStore
     Private Sub formStore_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+        Me.Close()
+        formLogIn.Show()
+    End Sub
+
+    Private Sub UpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem.Click
+        Dim formStoreAccount = New formStoreAccount
+        formStoreAccount.MdiParent = Me
+        formStoreAccount.txtID.Text = storeID
+        formStoreAccount.Show()
+
+    End Sub
+
+    Private Sub ViewSalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewSalesToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ViewSalesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ViewSalesToolStripMenuItem1.Click
+        Dim formStoreSales = New formStoreSales
+        formStoreSales.MdiParent = Me
+        formStoreSales.lblStoreID.text = storeID
+        formStoreSales.Show()
+    End Sub
 End Class
