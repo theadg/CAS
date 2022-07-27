@@ -3,7 +3,8 @@ Imports System.Data.OleDb
 Imports System.IO
 
 Public Class formStudentOrderHistory
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub formStudentOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadActiveOrders()
         loadCompletedOrders()
@@ -39,8 +40,9 @@ Public Class formStudentOrderHistory
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
+            Dim userType As String = "Student"
             con.Open()
-            sql = "Select * from ORDERactive WHERE userID=" & Val(lblUserID.Text)
+            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
@@ -58,8 +60,9 @@ Public Class formStudentOrderHistory
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
+            Dim userType As String = "Student"
             con.Open()
-            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text)
+            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd

@@ -3,7 +3,8 @@ Imports System.Data.OleDb
 Imports System.IO
 Public Class formStudentMain
 
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim studID, studOrder As Integer
     Public Sub New(ByVal varStudID As Integer)
 
@@ -55,6 +56,7 @@ Public Class formStudentMain
     Private Sub OrderHistoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrderHistoryToolStripMenuItem.Click
         Dim formStudentOrderHistory = New formStudentOrderHistory
         formStudentOrderHistory.MdiParent = Me
+
 
         formStudentOrderHistory.lblUserID.Text = studID
         formStudentOrderHistory.Show()

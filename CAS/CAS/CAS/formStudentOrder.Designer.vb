@@ -176,7 +176,7 @@ Partial Class formStudentOrder
         Me.lblPrice7.AutoSize = True
         Me.lblPrice7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice7.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice7.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice7.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice7.Name = "lblPrice7"
         Me.lblPrice7.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice7.TabIndex = 5
@@ -185,11 +185,11 @@ Partial Class formStudentOrder
         'lblDesc7
         '
         Me.lblDesc7.AutoSize = True
-        Me.lblDesc7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc7.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc7.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc7.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc7.Name = "lblDesc7"
-        Me.lblDesc7.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc7.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc7.TabIndex = 4
         Me.lblDesc7.Text = "DESCRIPTION"
         '
@@ -270,7 +270,7 @@ Partial Class formStudentOrder
         Me.lblPrice9.AutoSize = True
         Me.lblPrice9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice9.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice9.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice9.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice9.Name = "lblPrice9"
         Me.lblPrice9.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice9.TabIndex = 5
@@ -279,11 +279,11 @@ Partial Class formStudentOrder
         'lblDesc9
         '
         Me.lblDesc9.AutoSize = True
-        Me.lblDesc9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc9.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc9.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc9.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc9.Name = "lblDesc9"
-        Me.lblDesc9.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc9.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc9.TabIndex = 4
         Me.lblDesc9.Text = "DESCRIPTION"
         '
@@ -323,7 +323,7 @@ Partial Class formStudentOrder
         Me.lblPrice8.AutoSize = True
         Me.lblPrice8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice8.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice8.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice8.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice8.Name = "lblPrice8"
         Me.lblPrice8.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice8.TabIndex = 5
@@ -332,11 +332,11 @@ Partial Class formStudentOrder
         'lblDesc8
         '
         Me.lblDesc8.AutoSize = True
-        Me.lblDesc8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc8.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc8.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc8.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc8.Name = "lblDesc8"
-        Me.lblDesc8.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc8.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc8.TabIndex = 4
         Me.lblDesc8.Text = "DESCRIPTION"
         '
@@ -456,7 +456,7 @@ Partial Class formStudentOrder
         Me.lblPrice10.AutoSize = True
         Me.lblPrice10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice10.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice10.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice10.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice10.Name = "lblPrice10"
         Me.lblPrice10.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice10.TabIndex = 5
@@ -465,11 +465,11 @@ Partial Class formStudentOrder
         'lblDesc10
         '
         Me.lblDesc10.AutoSize = True
-        Me.lblDesc10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc10.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc10.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc10.Location = New System.Drawing.Point(6, 180)
         Me.lblDesc10.Name = "lblDesc10"
-        Me.lblDesc10.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc10.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc10.TabIndex = 4
         Me.lblDesc10.Text = "DESCRIPTION"
         '
@@ -592,7 +592,7 @@ Partial Class formStudentOrder
         Me.lblPrice6.AutoSize = True
         Me.lblPrice6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice6.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice6.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice6.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice6.Name = "lblPrice6"
         Me.lblPrice6.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice6.TabIndex = 5
@@ -601,11 +601,11 @@ Partial Class formStudentOrder
         'lblDesc6
         '
         Me.lblDesc6.AutoSize = True
-        Me.lblDesc6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc6.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc6.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc6.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc6.Name = "lblDesc6"
-        Me.lblDesc6.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc6.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc6.TabIndex = 4
         Me.lblDesc6.Text = "DESCRIPTION"
         '
@@ -680,11 +680,11 @@ Partial Class formStudentOrder
         'lblDesc3
         '
         Me.lblDesc3.AutoSize = True
-        Me.lblDesc3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc3.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc3.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc3.Location = New System.Drawing.Point(16, 180)
         Me.lblDesc3.Name = "lblDesc3"
-        Me.lblDesc3.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc3.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc3.TabIndex = 4
         Me.lblDesc3.Text = "DESCRIPTION"
         '
@@ -709,7 +709,7 @@ Partial Class formStudentOrder
         Me.lblPrice3.AutoSize = True
         Me.lblPrice3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice3.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice3.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice3.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice3.Name = "lblPrice3"
         Me.lblPrice3.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice3.TabIndex = 5
@@ -788,7 +788,7 @@ Partial Class formStudentOrder
         Me.lblPrice2.AutoSize = True
         Me.lblPrice2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice2.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice2.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice2.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice2.Name = "lblPrice2"
         Me.lblPrice2.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice2.TabIndex = 5
@@ -797,11 +797,11 @@ Partial Class formStudentOrder
         'lblDesc2
         '
         Me.lblDesc2.AutoSize = True
-        Me.lblDesc2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc2.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc2.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc2.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc2.Name = "lblDesc2"
-        Me.lblDesc2.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc2.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc2.TabIndex = 4
         Me.lblDesc2.Text = "DESCRIPTION"
         '
@@ -850,7 +850,7 @@ Partial Class formStudentOrder
         Me.lblPrice1.AutoSize = True
         Me.lblPrice1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice1.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice1.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice1.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice1.Name = "lblPrice1"
         Me.lblPrice1.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice1.TabIndex = 5
@@ -859,11 +859,11 @@ Partial Class formStudentOrder
         'lblDesc1
         '
         Me.lblDesc1.AutoSize = True
-        Me.lblDesc1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc1.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc1.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc1.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc1.Name = "lblDesc1"
-        Me.lblDesc1.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc1.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc1.TabIndex = 4
         Me.lblDesc1.Text = "DESCRIPTION"
         '
@@ -939,11 +939,11 @@ Partial Class formStudentOrder
         'lblDesc5
         '
         Me.lblDesc5.AutoSize = True
-        Me.lblDesc5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc5.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc5.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc5.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc5.Name = "lblDesc5"
-        Me.lblDesc5.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc5.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc5.TabIndex = 4
         Me.lblDesc5.Text = "DESCRIPTION"
         '
@@ -974,7 +974,7 @@ Partial Class formStudentOrder
         Me.lblPrice5.AutoSize = True
         Me.lblPrice5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice5.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice5.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice5.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice5.Name = "lblPrice5"
         Me.lblPrice5.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice5.TabIndex = 5
@@ -1026,7 +1026,7 @@ Partial Class formStudentOrder
         Me.lblPrice4.AutoSize = True
         Me.lblPrice4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrice4.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblPrice4.Location = New System.Drawing.Point(64, 216)
+        Me.lblPrice4.Location = New System.Drawing.Point(131, 228)
         Me.lblPrice4.Name = "lblPrice4"
         Me.lblPrice4.Size = New System.Drawing.Size(63, 20)
         Me.lblPrice4.TabIndex = 5
@@ -1035,11 +1035,11 @@ Partial Class formStudentOrder
         'lblDesc4
         '
         Me.lblDesc4.AutoSize = True
-        Me.lblDesc4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesc4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDesc4.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblDesc4.Location = New System.Drawing.Point(33, 180)
+        Me.lblDesc4.Location = New System.Drawing.Point(7, 180)
         Me.lblDesc4.Name = "lblDesc4"
-        Me.lblDesc4.Size = New System.Drawing.Size(129, 20)
+        Me.lblDesc4.Size = New System.Drawing.Size(91, 13)
         Me.lblDesc4.TabIndex = 4
         Me.lblDesc4.Text = "DESCRIPTION"
         '

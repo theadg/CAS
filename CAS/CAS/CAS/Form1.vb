@@ -1,8 +1,8 @@
 ﻿Imports System.Data
 Imports System.Data.OleDb
 Public Class formLogIn
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub

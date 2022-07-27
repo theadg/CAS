@@ -2,7 +2,8 @@
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formAdminOrder
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim admID As Integer
     Public Sub New(adminID As Integer)
 
@@ -21,6 +22,17 @@ Public Class formAdminOrder
         getStoreID()
         getOrderTable()
         lblAdminID.Text = admID
+
+        lblDesc1.MaximumSize = New Size(180, 0)
+        lblDesc2.MaximumSize = New Size(180, 0)
+        lblDesc3.MaximumSize = New Size(180, 0)
+        lblDesc4.MaximumSize = New Size(180, 0)
+        lblDesc5.MaximumSize = New Size(180, 0)
+        lblDesc6.MaximumSize = New Size(180, 0)
+        lblDesc7.MaximumSize = New Size(180, 0)
+        lblDesc8.MaximumSize = New Size(180, 0)
+        lblDesc9.MaximumSize = New Size(180, 0)
+        lblDesc10.MaximumSize = New Size(180, 0)
     End Sub
     Dim adminID As Integer
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

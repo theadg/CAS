@@ -2,13 +2,13 @@
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formAdminMStore
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
     Dim da As New OleDb.OleDbDataAdapter
     Dim result As Integer
     Dim imgpath As String
     Dim arrImage() As Byte
     Dim sql As String
-    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub formAdminMStore_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         refreshTable()
     End Sub

@@ -4,8 +4,8 @@ Imports System.IO
 
 'VALIDATION CONSTRAINTS/RULES!!!!!!!!!!!!!!!!!!!!!
 Public Class formAdminMStudents
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub formAdminMStudents_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvStudent.RowTemplate.Height = 50
 

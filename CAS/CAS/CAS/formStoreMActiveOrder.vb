@@ -2,8 +2,8 @@
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formStoreMActiveOrder
-
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
     Dim storeID As Integer
     Dim result, stID As Integer
     Dim imgpath As String

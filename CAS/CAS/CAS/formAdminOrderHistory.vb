@@ -2,7 +2,8 @@
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formAdminOrderHistory
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim orderID As Integer = DataGridView1.CurrentRow.Cells(0).Value
@@ -29,7 +30,7 @@ Public Class formAdminOrderHistory
             pbProd.Image = pbProd.ErrorImage
         End If
     End Sub
-    Sub loadActiveOrders()
+    Sub loadActiveOrdersStudent()
         Try
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
@@ -49,7 +50,27 @@ Public Class formAdminOrderHistory
         End Try
         con.Close()
     End Sub
-    Sub loadCompletedOrders()
+    Sub loadActiveOrdersAdmin()
+        Try
+            Dim sql As String
+            Dim cmd As New OleDb.OleDbCommand
+            Dim dt As New DataTable
+            Dim da As New OleDbDataAdapter
+            Dim userType As String = "Admin"
+            con.Open()
+            sql = "Select * from ORDERactive WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
+            cmd.Connection = con
+            cmd.CommandText = sql
+            da.SelectCommand = cmd
+
+            da.Fill(dt)
+            DataGridView1.DataSource = dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        con.Close()
+    End Sub
+    Sub loadCompletedOrdersStudent()
         Try
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
@@ -69,9 +90,36 @@ Public Class formAdminOrderHistory
         End Try
         con.Close()
     End Sub
+    Sub loadCompletedOrdersAdmin()
+        Try
+            Dim sql As String
+            Dim cmd As New OleDb.OleDbCommand
+            Dim dt As New DataTable
+            Dim da As New OleDbDataAdapter
+            Dim userType As String = "Admin"
+            con.Open()
+            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
+            cmd.Connection = con
+            cmd.CommandText = sql
+            da.SelectCommand = cmd
+
+            da.Fill(dt)
+            DataGridView2.DataSource = dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        con.Close()
+    End Sub
     Private Sub formAdminOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadActiveOrders()
-        loadCompletedOrders()
+        If lblUserType.Text = "Admin" Then
+            loadActiveOrdersAdmin()
+            loadCompletedOrdersAdmin()
+        ElseIf lblUserType.Text = "Student" Then
+            loadActiveOrdersStudent()
+            loadCompletedOrdersStudent()
+        End If
+
+
     End Sub
 
     Private Sub lblQty_Click(sender As Object, e As EventArgs)

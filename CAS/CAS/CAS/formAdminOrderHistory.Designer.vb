@@ -47,6 +47,7 @@ Partial Class formAdminOrderHistory
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblUserID = New System.Windows.Forms.Label()
+        Me.lblUserType = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.pbProd, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -309,11 +310,22 @@ Partial Class formAdminOrderHistory
         Me.lblUserID.TabIndex = 5
         Me.lblUserID.Text = "NO." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
+        'lblUserType
+        '
+        Me.lblUserType.AutoSize = True
+        Me.lblUserType.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserType.Location = New System.Drawing.Point(781, 1)
+        Me.lblUserType.Name = "lblUserType"
+        Me.lblUserType.Size = New System.Drawing.Size(153, 55)
+        Me.lblUserType.TabIndex = 6
+        Me.lblUserType.Text = "TYPE"
+        '
         'formAdminOrderHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1198, 580)
+        Me.Controls.Add(Me.lblUserType)
         Me.Controls.Add(Me.lblUserID)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.DataGridView2)
@@ -357,4 +369,5 @@ Partial Class formAdminOrderHistory
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label10 As Label
     Friend WithEvents lblUserID As Label
+    Friend WithEvents lblUserType As Label
 End Class

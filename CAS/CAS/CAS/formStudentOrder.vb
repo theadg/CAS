@@ -4,7 +4,8 @@ Imports System.IO
 
 Public Class formStudentOrder
 
-    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim stdID As Integer
     Public Sub New(studID As Integer)
 
@@ -22,6 +23,17 @@ Public Class formStudentOrder
         getStoreID()
         getOrderTable()
         lblAdminID.Text = stdID
+
+        lblDesc1.MaximumSize = New Size(180, 0)
+        lblDesc2.MaximumSize = New Size(180, 0)
+        lblDesc3.MaximumSize = New Size(180, 0)
+        lblDesc4.MaximumSize = New Size(180, 0)
+        lblDesc5.MaximumSize = New Size(180, 0)
+        lblDesc6.MaximumSize = New Size(180, 0)
+        lblDesc7.MaximumSize = New Size(180, 0)
+        lblDesc8.MaximumSize = New Size(180, 0)
+        lblDesc9.MaximumSize = New Size(180, 0)
+        lblDesc10.MaximumSize = New Size(180, 0)
     End Sub
     Sub getOrderTable()
         If con.State = ConnectionState.Closed Then
@@ -454,6 +466,10 @@ Public Class formStudentOrder
             lblStoreLoc.Text = dt2.Rows(1)(2)
             lblStoreCon.Text = dt2.Rows(1)(3)
         End If
+    End Sub
+
+    Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
+
     End Sub
 
     Private Sub btnBuy10_Click(sender As Object, e As EventArgs) Handles btnBuy10.Click
