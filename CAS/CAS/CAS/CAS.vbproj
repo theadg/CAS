@@ -159,12 +159,6 @@
     <Compile Include="formStoreMActiveOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formStoreMCompleteOrder.Designer.vb">
-      <DependentUpon>formStoreMCompleteOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="formStoreMCompleteOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="formStoreMInventory.Designer.vb">
       <DependentUpon>formStoreMInventory.vb</DependentUpon>
     </Compile>

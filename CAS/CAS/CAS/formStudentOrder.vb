@@ -1,11 +1,12 @@
-﻿Imports System.Data
+﻿'THIS FORM WAS CODED BY: DE GUZMAN, ANDREW
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 
 Public Class formStudentOrder
 
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim stdID As Integer
     Public Sub New(studID As Integer)
 
@@ -50,7 +51,7 @@ Public Class formStudentOrder
         da.SelectCommand = cmd
 
         da.Fill(dt)
-        DataGridView1.DataSource = dt
+        'DataGridView1.DataSource = dt
 
 
 
@@ -174,7 +175,7 @@ Public Class formStudentOrder
 
 
     End Sub
-
+    'gets the id of the store
     Sub getStoreID()
         Try
             Dim sql As String
@@ -182,13 +183,14 @@ Public Class formStudentOrder
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
             Dim dt2 As New DataTable
+            'select everything from storetbl
             sql = "SELECT * FROM STOREtbl"
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
 
             da.Fill(dt2)
-            'DataGridView1.DataSource = dt2
+            'add storeID into the combobox
             ComboBox1.Items.Add(dt2.Rows(0)(0))
             ComboBox1.Items.Add(dt2.Rows(1)(0))
 
@@ -199,8 +201,9 @@ Public Class formStudentOrder
 
         End Try
     End Sub
+    'loads initial products
     Sub getProductDataInitial()
-        'removed try para
+
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -211,7 +214,7 @@ Public Class formStudentOrder
         Dim da As New OleDbDataAdapter
         'con.Open()
 
-
+        'selects everything from producttbl with corresponding storeid
         sql = "SELECT * FROM PRODUCTtbl WHERE storeID=" & Val(ComboBox1.Text)
         cmd.Connection = con
         cmd.CommandText = sql
@@ -220,8 +223,7 @@ Public Class formStudentOrder
 
 
         da.Fill(dt)
-        'DataGridView1.DataSource = dt
-        'varAdminID = dt.Rows(0)(0)
+        'from 1 - 10, records are put into corresponding controls
         '1
         lblID1.Text = dt.Rows(0)(1)
         lblName1.Text = dt.Rows(0)(2)
@@ -313,7 +315,7 @@ Public Class formStudentOrder
         pbProd10.Image = Image.FromStream(mstream10)
 
     End Sub
-
+    'gets store info
     Sub getStoreInfo()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -324,20 +326,20 @@ Public Class formStudentOrder
         Dim dt As New DataTable
         Dim da As New OleDbDataAdapter
         Dim dt2 As New DataTable
+        'selects everythhing from storetbl with corresponding storeid
         sql = "SELECT * FROM STOREtbl  WHERE storeID=" & Val(ComboBox1.Text)
         cmd.Connection = con
         cmd.CommandText = sql
         da.SelectCommand = cmd
 
         da.Fill(dt2)
-        'DataGridView1.DataSource = dt2
 
 
         Dim store1 As String
         store1 = dt2.Rows(0)(1)
 
 
-
+        'put the data of the record into corresponding controls
         lblStoreName.Text = store1
         lblStoreLoc.Text = dt2.Rows(0)(2)
         lblStoreCon.Text = dt2.Rows(0)(3)
@@ -346,6 +348,9 @@ Public Class formStudentOrder
 
     Dim productID, storeID As Integer
     Dim storeName As String
+
+    'ALL BUY BUTTONS DISPLAY THE CORRESPONDING PRODUCT ID, STORE ID, STORE NAME 
+    'AND SENDS OVER THE DATA TO THE ORDER POP UP FORM
 
     Private Sub ButtonBuy1_Click(sender As Object, e As EventArgs) Handles btnBuy1.Click
 
@@ -431,8 +436,10 @@ Public Class formStudentOrder
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        'get products of the storer
         getProductData()
 
+        'update store details in the form
         storeID = ComboBox1.Text
         storeName = lblStoreName.Text
         If con.State = ConnectionState.Closed Then
@@ -457,6 +464,7 @@ Public Class formStudentOrder
         store1 = dt2.Rows(0)(1)
         store2 = dt2.Rows(1)(1)
 
+        'change store details of the form based on selected item
         If ComboBox1.SelectedIndex = 0 Then
             lblStoreName.Text = store1
             lblStoreLoc.Text = dt2.Rows(0)(2)
@@ -470,6 +478,11 @@ Public Class formStudentOrder
 
     Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Close Form
+        Me.Close()
     End Sub
 
     Private Sub btnBuy10_Click(sender As Object, e As EventArgs) Handles btnBuy10.Click

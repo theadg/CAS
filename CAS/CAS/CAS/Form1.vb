@@ -1,8 +1,9 @@
-﻿Imports System.Data
+﻿'THIS FORM WAS CODED BY: DE GUZMAN, ANDREW
+Imports System.Data
 Imports System.Data.OleDb
 Public Class formLogIn
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -10,16 +11,13 @@ Public Class formLogIn
     Dim varAdminUN, varAdminPW, varStoreUN, varStorePW As String 'asdasd
     Dim varAdminID, varStoreID, varStudID As Integer
 
-    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
-
-    End Sub
-
-    Private Sub btnGetID_Click(sender As Object, e As EventArgs) Handles btnGetID.Click
-        'getStoreID()
-        'getAdminID()
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        'Gets User ID dependent upon the type of User from respective table
         If cbUser.SelectedItem = "Student" Then
             getStudentID()
         ElseIf cbUser.SelectedItem = "Admin" Then
@@ -28,12 +26,12 @@ Public Class formLogIn
             getStoreID()
         End If
 
-
+        'opens the connection to the database if it is closed
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
 
-        'getAdminID()
+
         'Checking user type
         If cbUser.SelectedItem = "Student" Then
             'Checking complete input
@@ -81,8 +79,6 @@ Public Class formLogIn
                 If (count > 0) Then
                     getAdminID()
                     MsgBox("Login succeed", MsgBoxStyle.Information)
-                    'we send the variables to form admin
-
                     Dim formAdmin = New formAdmin(varAdminID, varAdminUN, varAdminPW)
                     Me.Hide()
                     formAdmin.Show()
@@ -117,8 +113,12 @@ Public Class formLogIn
             MsgBox("Please Select User Type")
         End If
 
+        'clears the combobox and txtboxes after logging in
+        cbUser.Text = String.Empty
+        txtUsername.Text = String.Empty
+        txtPassword.Text = String.Empty
     End Sub
-
+    'gets the adminID of admin
     Sub getAdminID()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -136,18 +136,20 @@ Public Class formLogIn
             da.SelectCommand = cmd
 
             da.Fill(dt)
-        DataGridView1.DataSource = dt
+
+
         If dt.Rows.Count > 0 Then
+            'puts the adminID in a variable
             varAdminID = dt.Rows(0)(0)
         Else
             varAdminID = 0
         End If
 
-        TextBox1.Text = varAdminID
+
 
 
     End Sub
-
+    'gets the storeID of store
     Sub getStoreID()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -165,17 +167,16 @@ Public Class formLogIn
         da.SelectCommand = cmd
 
         da.Fill(dt)
-        DataGridView1.DataSource = dt
+
+
         If dt.Rows.Count > 0 Then
+            'puts the storeID in a variable
             varStoreID = dt.Rows(0)(0)
         Else
             varStoreID = 0
         End If
-
-
-
     End Sub
-
+    'gets the studentID of Student 
     Sub getStudentID()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -193,14 +194,15 @@ Public Class formLogIn
         da.SelectCommand = cmd
 
         da.Fill(dt)
-        DataGridView1.DataSource = dt
+        'gets the 
         If dt.Rows.Count > 0 Then
+            'puts the studentID in a variable
             varStudID = dt.Rows(0)(0)
         Else
             varStudID = 0
         End If
 
-        TextBox1.Text = varAdminID
+
 
 
     End Sub

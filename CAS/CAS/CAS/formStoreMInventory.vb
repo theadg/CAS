@@ -1,17 +1,21 @@
-﻿Imports System.Data
+﻿''THIS FORM WAS CODED BY: DE GUZMAN, ANDREW
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formStoreMInventory
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'declaration for image
     Dim da As New OleDb.OleDbDataAdapter
     Dim result As Integer
     Dim imgpath As String
     Dim arrImage() As Byte
     Dim sql As String
     Private Sub formStoreMInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load products into datagriD
         loadProducts()
     End Sub
+    'load products into datagriD
     Sub loadProducts()
 
         Try
@@ -20,6 +24,7 @@ Public Class formStoreMInventory
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
             con.Open()
+            'select everythin from producttbl with the corresponding store id
             sql = "Select * from PRODUCTtbl WHERE storeID=" & Val(lblStoreID.Text)
             cmd.Connection = con
             cmd.CommandText = sql
@@ -34,7 +39,7 @@ Public Class formStoreMInventory
     End Sub
     Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
         Try
-            'pic code
+
             Dim mstream As New System.IO.MemoryStream()
 
             If pbProd.Image Is Nothing Then
@@ -45,14 +50,14 @@ Public Class formStoreMInventory
             Dim FileSize As UInt32
             FileSize = mstream.Length
             mstream.Close()
-            'end of pic code
+
 
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
 
             con.Open()
 
-
+            'update record into product tbl with the corresponding values and fields and product id
             sql = "UPDATE PRODUCTtbl SET productName=@productName, productDesc=@productDesc, productQty=@productQty,
                     productPrice=@productPrice,productPhoto=@productPhoto WHERE productID=" & Val(txtProdID.Text)
             'cmd.Parameters.AddWithValue("@storeID", CType(txtStoreIDreal.Text, Integer))
@@ -80,9 +85,12 @@ Public Class formStoreMInventory
         Finally
             con.Close()
         End Try
+
+        loadProducts()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        'Whenever a cell in the datagrid is clicked, the data of the record will be placed into corresponding controls
         Dim storeID As Integer = DataGridView1.CurrentRow.Cells(0).Value
         ' txtOrderID.Text = orderID
 
@@ -94,7 +102,7 @@ Public Class formStoreMInventory
         txtProdPrice.Text = DataGridView1.CurrentRow.Cells(5).Value
 
 
-        'magical line of code right here for getting image from db
+        'get img from db
 
         Dim picVar = DataGridView1.CurrentRow.Cells(6).Value
         If (picVar) IsNot DBNull.Value Then
@@ -107,6 +115,7 @@ Public Class formStoreMInventory
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'open the open fieldialog control
         Try
 
             Dim OFD As FileDialog = New OpenFileDialog()
@@ -128,7 +137,7 @@ Public Class formStoreMInventory
 
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
         Try
-            'pic code
+            'code for saving the picture
             Dim mstream As New System.IO.MemoryStream()
 
             If pbProd.Image Is Nothing Then
@@ -147,6 +156,7 @@ Public Class formStoreMInventory
 
 
             con.Open()
+            'insert record into product tbl with corresponding fields and values
             sql = "INSERT INTO PRODUCTtbl([storeID],[productName],[productDesc],[productQty],[productPrice],[productPhoto]) 
                     VALUES (@storeID,@productName,@productDesc, @productQty, @productPrice, @productPhoto)"
             cmd.Parameters.AddWithValue("@storeID", CType(lblStoreID.Text, Integer))
@@ -178,6 +188,7 @@ Public Class formStoreMInventory
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        'load products into datagrid
         loadProducts()
     End Sub
 
@@ -187,6 +198,7 @@ Public Class formStoreMInventory
             Dim cmd As New OleDb.OleDbCommand
 
             con.Open()
+            'rermove everything from the producttbl with the corresponding product id
             sql = "DELETE * from PRODUCTtbl WHERE productID=" & Val(txtProdID.Text) & ""
             cmd.Connection = con
             cmd.CommandText = sql
@@ -205,5 +217,14 @@ Public Class formStoreMInventory
             con.Close()
 
         End Try
+    End Sub
+
+    Private Sub lblStoreID_Click(sender As Object, e As EventArgs) Handles lblStoreID.Click
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'close the form
+        Me.Close()
     End Sub
 End Class

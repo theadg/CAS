@@ -22,103 +22,145 @@ Partial Class formLogIn
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formLogIn))
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.cbUser = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.btnGetID = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(194, 137)
+        Me.txtUsername.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Location = New System.Drawing.Point(442, 439)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(150, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(251, 31)
         Me.txtUsername.TabIndex = 0
         Me.txtUsername.Text = "admin"
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(194, 187)
+        Me.txtPassword.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Location = New System.Drawing.Point(442, 517)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(150, 20)
+        Me.txtPassword.Size = New System.Drawing.Size(251, 31)
         Me.txtPassword.TabIndex = 1
         Me.txtPassword.Text = "password"
         '
         'cbUser
         '
+        Me.cbUser.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cbUser.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbUser.FormattingEnabled = True
         Me.cbUser.Items.AddRange(New Object() {"Student", "Admin", "Store"})
-        Me.cbUser.Location = New System.Drawing.Point(194, 71)
+        Me.cbUser.Location = New System.Drawing.Point(442, 361)
         Me.cbUser.Name = "cbUser"
-        Me.cbUser.Size = New System.Drawing.Size(150, 21)
+        Me.cbUser.Size = New System.Drawing.Size(251, 36)
         Me.cbUser.TabIndex = 2
         Me.cbUser.Text = "Admin"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(222, 272)
+        Me.Button1.BackColor = System.Drawing.Color.Firebrick
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Poppins", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Button1.Location = New System.Drawing.Point(518, 575)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(108, 40)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "LOG IN"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
-        'LinkLabel1
+        'Label4
         '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.LinkVisited = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(229, 229)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(59, 13)
-        Me.LinkLabel1.TabIndex = 4
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "LinkLabel1"
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label4.Location = New System.Drawing.Point(437, 488)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(96, 26)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "PASSWORD"
         '
-        'btnGetID
+        'Label3
         '
-        Me.btnGetID.Location = New System.Drawing.Point(222, 319)
-        Me.btnGetID.Name = "btnGetID"
-        Me.btnGetID.Size = New System.Drawing.Size(75, 23)
-        Me.btnGetID.TabIndex = 5
-        Me.btnGetID.Text = "get ID"
-        Me.btnGetID.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label3.Location = New System.Drawing.Point(437, 410)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(90, 26)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "USERNAME"
         '
-        'TextBox1
+        'Label2
         '
-        Me.TextBox1.Location = New System.Drawing.Point(550, 272)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(150, 20)
-        Me.TextBox1.TabIndex = 6
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Location = New System.Drawing.Point(437, 332)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(84, 26)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "LOG IN AS"
         '
-        'DataGridView1
+        'Label1
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(514, 71)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(366, 150)
-        Me.DataGridView1.TabIndex = 7
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Poppins", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label1.Location = New System.Drawing.Point(367, 278)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(419, 42)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "CAFETERIA AUTOMATION SYSTEM"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Firebrick
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Poppins", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Button2.Location = New System.Drawing.Point(880, 103)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(27, 27)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "X"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'formLogIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(978, 450)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.btnGetID)
-        Me.Controls.Add(Me.LinkLabel1)
-        Me.Controls.Add(Me.Button1)
+        Me.BackgroundImage = Global.CAS.My.Resources.Resources.Add_a_subheading__2_
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1138, 729)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbUser)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPassword)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtUsername)
+        Me.Controls.Add(Me.Button1)
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "formLogIn"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Log In"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -128,8 +170,9 @@ Partial Class formLogIn
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents cbUser As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents btnGetID As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Button2 As Button
 End Class

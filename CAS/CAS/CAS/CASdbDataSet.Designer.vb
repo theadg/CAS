@@ -43,6 +43,32 @@ Partial Public Class CASdbDataSet
     
     Private tableUSERstudent As USERstudentDataTable
     
+    Private relationPRODUCTtblORDERactive As Global.System.Data.DataRelation
+    
+    Private relationUSERadminORDERactive As Global.System.Data.DataRelation
+    
+    Private relationUSERstudentORDERactive As Global.System.Data.DataRelation
+    
+    Private relationPRODUCTtblORDERcomplete As Global.System.Data.DataRelation
+    
+    Private relationUSERadminORDERcomplete As Global.System.Data.DataRelation
+    
+    Private relationPRODUCTtblORDERcompleteNOTIF As Global.System.Data.DataRelation
+    
+    Private relationUSERadminORDERcompleteNOTIF As Global.System.Data.DataRelation
+    
+    Private relationUSERstudentORDERcompleteNOTIF As Global.System.Data.DataRelation
+    
+    Private relationPRODUCTtblORDERnotif As Global.System.Data.DataRelation
+    
+    Private relationUSERadminORDERnotif As Global.System.Data.DataRelation
+    
+    Private relationUSERstudentORDERnotif As Global.System.Data.DataRelation
+    
+    Private relationSTOREtblPRODUCTtbl As Global.System.Data.DataRelation
+    
+    Private relationUSERstoreSTOREtbl As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -386,6 +412,19 @@ Partial Public Class CASdbDataSet
                 Me.tableUSERstudent.InitVars
             End If
         End If
+        Me.relationPRODUCTtblORDERactive = Me.Relations("PRODUCTtblORDERactive")
+        Me.relationUSERadminORDERactive = Me.Relations("USERadminORDERactive")
+        Me.relationUSERstudentORDERactive = Me.Relations("USERstudentORDERactive")
+        Me.relationPRODUCTtblORDERcomplete = Me.Relations("PRODUCTtblORDERcomplete")
+        Me.relationUSERadminORDERcomplete = Me.Relations("USERadminORDERcomplete")
+        Me.relationPRODUCTtblORDERcompleteNOTIF = Me.Relations("PRODUCTtblORDERcompleteNOTIF")
+        Me.relationUSERadminORDERcompleteNOTIF = Me.Relations("USERadminORDERcompleteNOTIF")
+        Me.relationUSERstudentORDERcompleteNOTIF = Me.Relations("USERstudentORDERcompleteNOTIF")
+        Me.relationPRODUCTtblORDERnotif = Me.Relations("PRODUCTtblORDERnotif")
+        Me.relationUSERadminORDERnotif = Me.Relations("USERadminORDERnotif")
+        Me.relationUSERstudentORDERnotif = Me.Relations("USERstudentORDERnotif")
+        Me.relationSTOREtblPRODUCTtbl = Me.Relations("STOREtblPRODUCTtbl")
+        Me.relationUSERstoreSTOREtbl = Me.Relations("USERstoreSTOREtbl")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -414,6 +453,32 @@ Partial Public Class CASdbDataSet
         MyBase.Tables.Add(Me.tableUSERstore)
         Me.tableUSERstudent = New USERstudentDataTable()
         MyBase.Tables.Add(Me.tableUSERstudent)
+        Me.relationPRODUCTtblORDERactive = New Global.System.Data.DataRelation("PRODUCTtblORDERactive", New Global.System.Data.DataColumn() {Me.tablePRODUCTtbl.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERactive.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationPRODUCTtblORDERactive)
+        Me.relationUSERadminORDERactive = New Global.System.Data.DataRelation("USERadminORDERactive", New Global.System.Data.DataColumn() {Me.tableUSERadmin.adminIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERactive.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERadminORDERactive)
+        Me.relationUSERstudentORDERactive = New Global.System.Data.DataRelation("USERstudentORDERactive", New Global.System.Data.DataColumn() {Me.tableUSERstudent.studIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERactive.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERstudentORDERactive)
+        Me.relationPRODUCTtblORDERcomplete = New Global.System.Data.DataRelation("PRODUCTtblORDERcomplete", New Global.System.Data.DataColumn() {Me.tablePRODUCTtbl.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERcomplete.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationPRODUCTtblORDERcomplete)
+        Me.relationUSERadminORDERcomplete = New Global.System.Data.DataRelation("USERadminORDERcomplete", New Global.System.Data.DataColumn() {Me.tableUSERadmin.adminIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERcomplete.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERadminORDERcomplete)
+        Me.relationPRODUCTtblORDERcompleteNOTIF = New Global.System.Data.DataRelation("PRODUCTtblORDERcompleteNOTIF", New Global.System.Data.DataColumn() {Me.tablePRODUCTtbl.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERcompleteNOTIF.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationPRODUCTtblORDERcompleteNOTIF)
+        Me.relationUSERadminORDERcompleteNOTIF = New Global.System.Data.DataRelation("USERadminORDERcompleteNOTIF", New Global.System.Data.DataColumn() {Me.tableUSERadmin.adminIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERcompleteNOTIF.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERadminORDERcompleteNOTIF)
+        Me.relationUSERstudentORDERcompleteNOTIF = New Global.System.Data.DataRelation("USERstudentORDERcompleteNOTIF", New Global.System.Data.DataColumn() {Me.tableUSERstudent.studIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERcompleteNOTIF.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERstudentORDERcompleteNOTIF)
+        Me.relationPRODUCTtblORDERnotif = New Global.System.Data.DataRelation("PRODUCTtblORDERnotif", New Global.System.Data.DataColumn() {Me.tablePRODUCTtbl.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERnotif.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationPRODUCTtblORDERnotif)
+        Me.relationUSERadminORDERnotif = New Global.System.Data.DataRelation("USERadminORDERnotif", New Global.System.Data.DataColumn() {Me.tableUSERadmin.adminIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERnotif.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERadminORDERnotif)
+        Me.relationUSERstudentORDERnotif = New Global.System.Data.DataRelation("USERstudentORDERnotif", New Global.System.Data.DataColumn() {Me.tableUSERstudent.studIDColumn}, New Global.System.Data.DataColumn() {Me.tableORDERnotif.userIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERstudentORDERnotif)
+        Me.relationSTOREtblPRODUCTtbl = New Global.System.Data.DataRelation("STOREtblPRODUCTtbl", New Global.System.Data.DataColumn() {Me.tableSTOREtbl.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tablePRODUCTtbl.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationSTOREtblPRODUCTtbl)
+        Me.relationUSERstoreSTOREtbl = New Global.System.Data.DataRelation("USERstoreSTOREtbl", New Global.System.Data.DataColumn() {Me.tableUSERstore.storeIDColumn}, New Global.System.Data.DataColumn() {Me.tableSTOREtbl.storeIDColumn}, false)
+        Me.Relations.Add(Me.relationUSERstoreSTOREtbl)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -755,9 +820,15 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddORDERactiveRow(ByVal storeID As Integer, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal userID As Integer, ByVal prodPic() As Byte) As ORDERactiveRow
+        Public Overloads Function AddORDERactiveRow(ByVal parentPRODUCTtblRowByPRODUCTtblORDERactive As PRODUCTtblRow, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal parentUSERadminRowByUSERadminORDERactive As USERadminRow, ByVal prodPic() As Byte) As ORDERactiveRow
             Dim rowORDERactiveRow As ORDERactiveRow = CType(Me.NewRow,ORDERactiveRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, storeID, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, userID, prodPic}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, Nothing, prodPic}
+            If (Not (parentPRODUCTtblRowByPRODUCTtblORDERactive) Is Nothing) Then
+                columnValuesArray(1) = parentPRODUCTtblRowByPRODUCTtblORDERactive(0)
+            End If
+            If (Not (parentUSERadminRowByUSERadminORDERactive) Is Nothing) Then
+                columnValuesArray(10) = parentUSERadminRowByUSERadminORDERactive(0)
+            End If
             rowORDERactiveRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowORDERactiveRow)
             Return rowORDERactiveRow
@@ -1156,9 +1227,15 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddORDERcompleteRow(ByVal orderID As Integer, ByVal storeID As Integer, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal userID As Integer, ByVal prodPic() As Byte) As ORDERcompleteRow
+        Public Overloads Function AddORDERcompleteRow(ByVal orderID As Integer, ByVal parentPRODUCTtblRowByPRODUCTtblORDERcomplete As PRODUCTtblRow, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal parentUSERadminRowByUSERadminORDERcomplete As USERadminRow, ByVal prodPic() As Byte) As ORDERcompleteRow
             Dim rowORDERcompleteRow As ORDERcompleteRow = CType(Me.NewRow,ORDERcompleteRow)
-            Dim columnValuesArray() As Object = New Object() {orderID, storeID, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, userID, prodPic}
+            Dim columnValuesArray() As Object = New Object() {orderID, Nothing, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, Nothing, prodPic}
+            If (Not (parentPRODUCTtblRowByPRODUCTtblORDERcomplete) Is Nothing) Then
+                columnValuesArray(1) = parentPRODUCTtblRowByPRODUCTtblORDERcomplete(0)
+            End If
+            If (Not (parentUSERadminRowByUSERadminORDERcomplete) Is Nothing) Then
+                columnValuesArray(10) = parentUSERadminRowByUSERadminORDERcomplete(0)
+            End If
             rowORDERcompleteRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowORDERcompleteRow)
             Return rowORDERcompleteRow
@@ -1554,9 +1631,15 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddORDERcompleteNOTIFRow(ByVal orderID As Integer, ByVal storeID As Integer, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal userID As Integer, ByVal prodPic() As Byte) As ORDERcompleteNOTIFRow
+        Public Overloads Function AddORDERcompleteNOTIFRow(ByVal orderID As Integer, ByVal parentPRODUCTtblRowByPRODUCTtblORDERcompleteNOTIF As PRODUCTtblRow, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal parentUSERadminRowByUSERadminORDERcompleteNOTIF As USERadminRow, ByVal prodPic() As Byte) As ORDERcompleteNOTIFRow
             Dim rowORDERcompleteNOTIFRow As ORDERcompleteNOTIFRow = CType(Me.NewRow,ORDERcompleteNOTIFRow)
-            Dim columnValuesArray() As Object = New Object() {orderID, storeID, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, userID, prodPic}
+            Dim columnValuesArray() As Object = New Object() {orderID, Nothing, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, Nothing, prodPic}
+            If (Not (parentPRODUCTtblRowByPRODUCTtblORDERcompleteNOTIF) Is Nothing) Then
+                columnValuesArray(1) = parentPRODUCTtblRowByPRODUCTtblORDERcompleteNOTIF(0)
+            End If
+            If (Not (parentUSERadminRowByUSERadminORDERcompleteNOTIF) Is Nothing) Then
+                columnValuesArray(10) = parentUSERadminRowByUSERadminORDERcompleteNOTIF(0)
+            End If
             rowORDERcompleteNOTIFRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowORDERcompleteNOTIFRow)
             Return rowORDERcompleteNOTIFRow
@@ -1952,9 +2035,15 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddORDERnotifRow(ByVal orderID As Integer, ByVal storeID As Integer, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal userID As Integer, ByVal prodPic() As Byte) As ORDERnotifRow
+        Public Overloads Function AddORDERnotifRow(ByVal orderID As Integer, ByVal parentPRODUCTtblRowByPRODUCTtblORDERnotif As PRODUCTtblRow, ByVal prodID As Integer, ByVal orderDate As Date, ByVal storeName As String, ByVal prodName As String, ByVal prodPrice As Decimal, ByVal prodTotalPrice As Decimal, ByVal prodQty As Integer, ByVal userType As String, ByVal parentUSERadminRowByUSERadminORDERnotif As USERadminRow, ByVal prodPic() As Byte) As ORDERnotifRow
             Dim rowORDERnotifRow As ORDERnotifRow = CType(Me.NewRow,ORDERnotifRow)
-            Dim columnValuesArray() As Object = New Object() {orderID, storeID, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, userID, prodPic}
+            Dim columnValuesArray() As Object = New Object() {orderID, Nothing, prodID, orderDate, storeName, prodName, prodPrice, prodTotalPrice, prodQty, userType, Nothing, prodPic}
+            If (Not (parentPRODUCTtblRowByPRODUCTtblORDERnotif) Is Nothing) Then
+                columnValuesArray(1) = parentPRODUCTtblRowByPRODUCTtblORDERnotif(0)
+            End If
+            If (Not (parentUSERadminRowByUSERadminORDERnotif) Is Nothing) Then
+                columnValuesArray(10) = parentUSERadminRowByUSERadminORDERnotif(0)
+            End If
             rowORDERnotifRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowORDERnotifRow)
             Return rowORDERnotifRow
@@ -2300,9 +2389,12 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddPRODUCTtblRow(ByVal storeID As Integer, ByVal productName As String, ByVal productDesc As String, ByVal productQty As Integer, ByVal productPrice As Decimal, ByVal productPhoto() As Byte) As PRODUCTtblRow
+        Public Overloads Function AddPRODUCTtblRow(ByVal parentSTOREtblRowBySTOREtblPRODUCTtbl As STOREtblRow, ByVal productName As String, ByVal productDesc As String, ByVal productQty As Integer, ByVal productPrice As Decimal, ByVal productPhoto() As Byte) As PRODUCTtblRow
             Dim rowPRODUCTtblRow As PRODUCTtblRow = CType(Me.NewRow,PRODUCTtblRow)
-            Dim columnValuesArray() As Object = New Object() {storeID, Nothing, productName, productDesc, productQty, productPrice, productPhoto}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, productName, productDesc, productQty, productPrice, productPhoto}
+            If (Not (parentSTOREtblRowBySTOREtblPRODUCTtbl) Is Nothing) Then
+                columnValuesArray(0) = parentSTOREtblRowBySTOREtblPRODUCTtbl(0)
+            End If
             rowPRODUCTtblRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPRODUCTtblRow)
             Return rowPRODUCTtblRow
@@ -4077,6 +4169,39 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property PRODUCTtblRow() As PRODUCTtblRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("PRODUCTtblORDERactive")),PRODUCTtblRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("PRODUCTtblORDERactive"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERadminRow() As USERadminRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERadminORDERactive")),USERadminRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERadminORDERactive"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERstudentRow() As USERstudentRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERstudentORDERactive")),USERstudentRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERstudentORDERactive"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsorderIDNull() As Boolean
             Return Me.IsNull(Me.tableORDERactive.orderIDColumn)
         End Function
@@ -4412,6 +4537,28 @@ Partial Public Class CASdbDataSet
             End Get
             Set
                 Me(Me.tableORDERcomplete.prodPicColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property PRODUCTtblRow() As PRODUCTtblRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("PRODUCTtblORDERcomplete")),PRODUCTtblRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("PRODUCTtblORDERcomplete"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERadminRow() As USERadminRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERadminORDERcomplete")),USERadminRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERadminORDERcomplete"))
             End Set
         End Property
         
@@ -4757,6 +4904,39 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property PRODUCTtblRow() As PRODUCTtblRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("PRODUCTtblORDERcompleteNOTIF")),PRODUCTtblRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("PRODUCTtblORDERcompleteNOTIF"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERadminRow() As USERadminRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERadminORDERcompleteNOTIF")),USERadminRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERadminORDERcompleteNOTIF"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERstudentRow() As USERstudentRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERstudentORDERcompleteNOTIF")),USERstudentRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERstudentORDERcompleteNOTIF"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsorderIDNull() As Boolean
             Return Me.IsNull(Me.tableORDERcompleteNOTIF.orderIDColumn)
         End Function
@@ -5097,6 +5277,39 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property PRODUCTtblRow() As PRODUCTtblRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("PRODUCTtblORDERnotif")),PRODUCTtblRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("PRODUCTtblORDERnotif"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERadminRow() As USERadminRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERadminORDERnotif")),USERadminRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERadminORDERnotif"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERstudentRow() As USERstudentRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERstudentORDERnotif")),USERstudentRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERstudentORDERnotif"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsorderIDNull() As Boolean
             Return Me.IsNull(Me.tableORDERnotif.orderIDColumn)
         End Function
@@ -5358,6 +5571,17 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property STOREtblRow() As STOREtblRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("STOREtblPRODUCTtbl")),STOREtblRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("STOREtblPRODUCTtbl"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsstoreIDNull() As Boolean
             Return Me.IsNull(Me.tablePRODUCTtbl.storeIDColumn)
         End Function
@@ -5427,6 +5651,46 @@ Partial Public Class CASdbDataSet
         Public Sub SetproductPhotoNull()
             Me(Me.tablePRODUCTtbl.productPhotoColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERactiveRows() As ORDERactiveRow()
+            If (Me.Table.ChildRelations("PRODUCTtblORDERactive") Is Nothing) Then
+                Return New ORDERactiveRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("PRODUCTtblORDERactive")),ORDERactiveRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERcompleteRows() As ORDERcompleteRow()
+            If (Me.Table.ChildRelations("PRODUCTtblORDERcomplete") Is Nothing) Then
+                Return New ORDERcompleteRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("PRODUCTtblORDERcomplete")),ORDERcompleteRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERcompleteNOTIFRows() As ORDERcompleteNOTIFRow()
+            If (Me.Table.ChildRelations("PRODUCTtblORDERcompleteNOTIF") Is Nothing) Then
+                Return New ORDERcompleteNOTIFRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("PRODUCTtblORDERcompleteNOTIF")),ORDERcompleteNOTIFRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERnotifRows() As ORDERnotifRow()
+            If (Me.Table.ChildRelations("PRODUCTtblORDERnotif") Is Nothing) Then
+                Return New ORDERnotifRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("PRODUCTtblORDERnotif")),ORDERnotifRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -5547,6 +5811,17 @@ Partial Public Class CASdbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property USERstoreRow() As USERstoreRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("USERstoreSTOREtbl")),USERstoreRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("USERstoreSTOREtbl"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsstoreNameNull() As Boolean
             Return Me.IsNull(Me.tableSTOREtbl.storeNameColumn)
         End Function
@@ -5616,6 +5891,16 @@ Partial Public Class CASdbDataSet
         Public Sub SetstoreLogoNull()
             Me(Me.tableSTOREtbl.storeLogoColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetPRODUCTtblRows() As PRODUCTtblRow()
+            If (Me.Table.ChildRelations("STOREtblPRODUCTtbl") Is Nothing) Then
+                Return New PRODUCTtblRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("STOREtblPRODUCTtbl")),PRODUCTtblRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -5724,6 +6009,46 @@ Partial Public Class CASdbDataSet
         Public Sub SetadminOrderNull()
             Me(Me.tableUSERadmin.adminOrderColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERactiveRows() As ORDERactiveRow()
+            If (Me.Table.ChildRelations("USERadminORDERactive") Is Nothing) Then
+                Return New ORDERactiveRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERadminORDERactive")),ORDERactiveRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERcompleteRows() As ORDERcompleteRow()
+            If (Me.Table.ChildRelations("USERadminORDERcomplete") Is Nothing) Then
+                Return New ORDERcompleteRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERadminORDERcomplete")),ORDERcompleteRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERcompleteNOTIFRows() As ORDERcompleteNOTIFRow()
+            If (Me.Table.ChildRelations("USERadminORDERcompleteNOTIF") Is Nothing) Then
+                Return New ORDERcompleteNOTIFRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERadminORDERcompleteNOTIF")),ORDERcompleteNOTIFRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERnotifRows() As ORDERnotifRow()
+            If (Me.Table.ChildRelations("USERadminORDERnotif") Is Nothing) Then
+                Return New ORDERnotifRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERadminORDERnotif")),ORDERnotifRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -5859,6 +6184,16 @@ Partial Public Class CASdbDataSet
         Public Sub SetstorePasswordNull()
             Me(Me.tableUSERstore.storePasswordColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetSTOREtblRows() As STOREtblRow()
+            If (Me.Table.ChildRelations("USERstoreSTOREtbl") Is Nothing) Then
+                Return New STOREtblRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERstoreSTOREtbl")),STOREtblRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -6183,6 +6518,36 @@ Partial Public Class CASdbDataSet
         Public Sub SetstudOrderNull()
             Me(Me.tableUSERstudent.studOrderColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERactiveRows() As ORDERactiveRow()
+            If (Me.Table.ChildRelations("USERstudentORDERactive") Is Nothing) Then
+                Return New ORDERactiveRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERstudentORDERactive")),ORDERactiveRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERcompleteNOTIFRows() As ORDERcompleteNOTIFRow()
+            If (Me.Table.ChildRelations("USERstudentORDERcompleteNOTIF") Is Nothing) Then
+                Return New ORDERcompleteNOTIFRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERstudentORDERcompleteNOTIF")),ORDERcompleteNOTIFRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function GetORDERnotifRows() As ORDERnotifRow()
+            If (Me.Table.ChildRelations("USERstudentORDERnotif") Is Nothing) Then
+                Return New ORDERnotifRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("USERstudentORDERnotif")),ORDERnotifRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -10371,6 +10736,51 @@ Namespace CASdbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As CASdbDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._uSERstoreTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._sTOREtblTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._pRODUCTtblTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._uSERadminTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._uSERstudentTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._oRDERactiveTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.ORDERactive.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -10407,51 +10817,6 @@ Namespace CASdbDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._pRODUCTtblTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._sTOREtblTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._uSERadminTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._uSERstoreTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._uSERstudentTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -10462,6 +10827,46 @@ Namespace CASdbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As CASdbDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._uSERstoreTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._sTOREtblTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._pRODUCTtblTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._uSERadminTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._uSERstudentTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._oRDERactiveTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.ORDERactive.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -10494,46 +10899,6 @@ Namespace CASdbDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._pRODUCTtblTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._sTOREtblTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._uSERadminTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._uSERstoreTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._uSERstudentTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -10544,46 +10909,6 @@ Namespace CASdbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As CASdbDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._uSERstudentTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._uSERstoreTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._uSERadminTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._sTOREtblTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._pRODUCTtblTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._oRDERnotifTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.ORDERnotif.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -10613,6 +10938,46 @@ Namespace CASdbDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._oRDERactiveTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._uSERstudentTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERstudent.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._uSERstudentTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._uSERadminTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERadmin.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._uSERadminTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._pRODUCTtblTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.PRODUCTtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._pRODUCTtblTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._sTOREtblTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.STOREtbl.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._sTOREtblTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._uSERstoreTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.USERstore.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._uSERstoreTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If

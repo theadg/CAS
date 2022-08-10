@@ -1,15 +1,15 @@
-﻿Imports System.Data
+﻿'THIS FORM WAS CODED BY: DE GUZMAN, ANDREW
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formAdminOrder
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim admID As Integer
     Public Sub New(adminID As Integer)
-
         ' This call is required by the designer.
         InitializeComponent()
-
+        'get the adminid
         admID = adminID
 
         ' Add any initialization after the InitializeComponent() call.
@@ -17,12 +17,19 @@ Public Class formAdminOrder
     End Sub
 
     Private Sub formAdminOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load products from store1
         getProductDataInitial()
+
+        'load information from the store table
         getStoreInfo()
+
+        'get thhe store id 
         getStoreID()
-        getOrderTable()
+        'getOrderTable()
         lblAdminID.Text = admID
 
+
+        'set the maximum size of description labels
         lblDesc1.MaximumSize = New Size(180, 0)
         lblDesc2.MaximumSize = New Size(180, 0)
         lblDesc3.MaximumSize = New Size(180, 0)
@@ -36,6 +43,7 @@ Public Class formAdminOrder
     End Sub
     Dim adminID As Integer
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        'calls the functions to get the product data of the corresponding store
         getProductData()
 
         storeID = ComboBox1.Text
@@ -45,23 +53,24 @@ Public Class formAdminOrder
         End If
 
         Dim sql As String
-            Dim cmd As New OleDb.OleDbCommand
-            Dim dt As New DataTable
-            Dim da As New OleDbDataAdapter
-            Dim dt2 As New DataTable
-            sql = "SELECT * FROM STOREtbl"
-            cmd.Connection = con
-            cmd.CommandText = sql
-            da.SelectCommand = cmd
+        Dim cmd As New OleDb.OleDbCommand
+        Dim dt As New DataTable
+        Dim da As New OleDbDataAdapter
+        Dim dt2 As New DataTable
+        sql = "SELECT * FROM STOREtbl"
+        cmd.Connection = con
+        cmd.CommandText = sql
+        da.SelectCommand = cmd
 
-            da.Fill(dt2)
-        'DataGridView1.DataSource = dt2
+        da.Fill(dt2)
+
 
 
         Dim store1, store2 As String
         store1 = dt2.Rows(0)(1)
         store2 = dt2.Rows(1)(1)
 
+        'checks selected store from the combobox
         If ComboBox1.SelectedIndex = 0 Then
             lblStoreName.Text = store1
             lblStoreLoc.Text = dt2.Rows(0)(2)
@@ -72,31 +81,25 @@ Public Class formAdminOrder
             lblStoreCon.Text = dt2.Rows(1)(3)
         End If
     End Sub
-    Sub getOrderTable()
-        If con.State = ConnectionState.Closed Then
-            con.Open()
-        End If
+    'Sub getOrderTable()
+    '    If con.State = ConnectionState.Closed Then
+    '        con.Open()
+    '    End If
 
-        Dim sql As String
-        Dim cmd As New OleDb.OleDbCommand
-        Dim dt As New DataTable
-        Dim da As New OleDbDataAdapter
-        sql = "SELECT * FROM ORDERactive"
-        cmd.Connection = con
-        cmd.CommandText = sql
-        da.SelectCommand = cmd
+    '    Dim sql As String
+    '    Dim cmd As New OleDb.OleDbCommand
+    '    Dim dt As New DataTable
+    '    Dim da As New OleDbDataAdapter
+    '    sql = "SELECT * FROM ORDERactive"
+    '    cmd.Connection = con
+    '    cmd.CommandText = sql
+    '    da.SelectCommand = cmd
 
-        da.Fill(dt)
-        DataGridView1.DataSource = dt
-
-
-
-
-
-
-    End Sub
+    '    da.Fill(dt)
+    '    DataGridView1.DataSource = dt
+    'End Sub
     Sub getProductData()
-        'removed try para
+
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -105,19 +108,16 @@ Public Class formAdminOrder
         Dim cmd As New OleDb.OleDbCommand
         Dim dt As New DataTable
         Dim da As New OleDbDataAdapter
-        'con.Open()
-
-        'Dim testID As Integer = 2
+        'selects everything from the product table
         sql = "SELECT * FROM PRODUCTtbl WHERE storeID=" & Val(ComboBox1.Text)
         cmd.Connection = con
         cmd.CommandText = sql
         da.SelectCommand = cmd
 
-
-
         da.Fill(dt)
-        'DataGridView1.DataSource = dt
-        'varAdminID = dt.Rows(0)(0)
+
+        'from 1 - 10, records are put into corresponding controls
+
         '1
         lblID1.Text = dt.Rows(0)(1)
         lblName1.Text = dt.Rows(0)(2)
@@ -207,11 +207,8 @@ Public Class formAdminOrder
         Dim bytes10 As Byte() = dt.Rows(9)(6)
         Dim mstream10 As New System.IO.MemoryStream(bytes10)
         pbProd10.Image = Image.FromStream(mstream10)
-
-
-
     End Sub
-
+    'gets the store id of the store
     Sub getStoreID()
         Try
             Dim sql As String
@@ -219,25 +216,79 @@ Public Class formAdminOrder
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
             Dim dt2 As New DataTable
-            Sql = "SELECT * FROM STOREtbl"
+            'select everything from the store tbl
+            sql = "SELECT * FROM STOREtbl"
             cmd.Connection = con
             cmd.CommandText = Sql
             da.SelectCommand = cmd
 
             da.Fill(dt2)
-            'DataGridView1.DataSource = dt2
+
+            'adds the store ids to the combobox
             ComboBox1.Items.Add(dt2.Rows(0)(0))
             ComboBox1.Items.Add(dt2.Rows(1)(0))
-
-
 
 
         Catch ex As Exception
 
         End Try
     End Sub
+    'Sub loadBanner()
+    '    If con.State = ConnectionState.Closed Then
+    '        con.Open()
+    '    End If
+    '    'Try
+    '    Dim sql As String
+    '        Dim cmd As New OleDb.OleDbCommand
+    '        Dim dt As New DataTable
+    '        Dim da As New OleDbDataAdapter
+    '        'con.Open()
+    '        sql = "Select storeLogo from STOREtbl WHERE storeID=" & Val(ComboBox1.Text)
+    '        cmd.Connection = con
+    '        cmd.CommandText = sql
+    '        da.SelectCommand = cmd
+
+    '        da.Fill(dt)
+
+    '        Dim bytes As Byte() = dt.Rows(0)(0)
+    '        Dim mstream As New System.IO.MemoryStream(bytes)
+    '        pbBanner.Image = Image.FromStream(mstream)
+
+
+    '    'Catch ex As Exception
+    '    '    ' MsgBox(ex.Message)
+    '    'End Try
+    '    'con.Close()
+    'End Sub
+    'Sub loadBannerInitial()
+    '    If con.State = ConnectionState.Closed Then
+    '        con.Open()
+    '    End If
+    '    Dim sql As String
+    '        Dim cmd As New OleDb.OleDbCommand
+    '        Dim dt As New DataTable
+    '        Dim da As New OleDbDataAdapter
+    '        Dim initial As Integer = 1
+    '    ' con.Open()
+    '    sql = "Select storeLogo from STOREtbl WHERE storeID=" & initial
+    '        cmd.Connection = con
+    '        cmd.CommandText = sql
+    '        da.SelectCommand = cmd
+
+    '        da.Fill(dt)
+
+    '        Dim bytes As Byte() = dt.Rows(0)(0)
+    '        Dim mstream As New System.IO.MemoryStream(bytes)
+    '        pbBanner.Image = Image.FromStream(mstream)
+
+
+    '    'Catch ex As Exception
+    '    '    ' MsgBox(ex.Message)
+    '    'End Try
+    '    'con.Close()
+    'End Sub
+
     Sub getProductDataInitial()
-        'removed try para
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -246,19 +297,18 @@ Public Class formAdminOrder
         Dim cmd As New OleDb.OleDbCommand
         Dim dt As New DataTable
         Dim da As New OleDbDataAdapter
-        'con.Open()
 
 
+        'selects everything from the producttbl with the corresponding storeid
         sql = "SELECT * FROM PRODUCTtbl WHERE storeID=" & Val(ComboBox1.Text)
+
         cmd.Connection = con
         cmd.CommandText = sql
         da.SelectCommand = cmd
 
-
-
         da.Fill(dt)
-        'DataGridView1.DataSource = dt
-        'varAdminID = dt.Rows(0)(0)
+
+        'from 1 - 10, records are put into corresponding controls
         '1
         lblID1.Text = dt.Rows(0)(1)
         lblName1.Text = dt.Rows(0)(2)
@@ -350,7 +400,7 @@ Public Class formAdminOrder
         pbProd10.Image = Image.FromStream(mstream10)
 
     End Sub
-
+    'gets the store info based on the store id
     Sub getStoreInfo()
         If con.State = ConnectionState.Closed Then
             con.Open()
@@ -361,31 +411,30 @@ Public Class formAdminOrder
         Dim dt As New DataTable
         Dim da As New OleDbDataAdapter
         Dim dt2 As New DataTable
+        'selects everything from the storetbl with the corresponding store id
         sql = "SELECT * FROM STOREtbl  WHERE storeID=" & Val(ComboBox1.Text)
         cmd.Connection = con
         cmd.CommandText = sql
         da.SelectCommand = cmd
 
         da.Fill(dt2)
-        'DataGridView1.DataSource = dt2
-
 
         Dim store1 As String
         store1 = dt2.Rows(0)(1)
 
-
-
+        'puts the data of the record into corresponding controls
         lblStoreName.Text = store1
         lblStoreLoc.Text = dt2.Rows(0)(2)
         lblStoreCon.Text = dt2.Rows(0)(3)
-
     End Sub
 
     Dim productID, storeID As Integer
     Dim storeName As String
 
-    Private Sub ButtonBuy1_Click(sender As Object, e As EventArgs) Handles btnBuy1.Click
+    'ALL BUY BUTTONS DISPLAY THE CORRESPONDING PRODUCT ID, STORE ID, STORE NAME 
+    'AND SENDS OVER THE DATA TO THE ORDER POP UP FORM
 
+    Private Sub ButtonBuy1_Click(sender As Object, e As EventArgs) Handles btnBuy1.Click
 
         productID = lblID1.Text
         storeID = ComboBox1.Text
@@ -465,6 +514,14 @@ Public Class formAdminOrder
         Dim formAdminOrderPopUp = New formAdminOrderPopUp(productID, storeID, admID, storeName)
 
         formAdminOrderPopUp.Show()
+    End Sub
+
+    Private Sub pbProd1_Click(sender As Object, e As EventArgs) Handles pbProd1.Click
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
 
     Private Sub btnBuy10_Click(sender As Object, e As EventArgs) Handles btnBuy10.Click

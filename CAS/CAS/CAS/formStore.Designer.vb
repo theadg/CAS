@@ -22,6 +22,7 @@ Partial Class formStore
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formStore))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.InventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateInventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,7 +41,7 @@ Partial Class formStore
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventoryToolStripMenuItem, Me.OrdersToolStripMenuItem, Me.AccountToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1231, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1424, 24)
         Me.MenuStrip1.TabIndex = 40
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -54,7 +55,7 @@ Partial Class formStore
         'UpdateInventoryToolStripMenuItem
         '
         Me.UpdateInventoryToolStripMenuItem.Name = "UpdateInventoryToolStripMenuItem"
-        Me.UpdateInventoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UpdateInventoryToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.UpdateInventoryToolStripMenuItem.Text = "Update Inventory"
         '
         'OrdersToolStripMenuItem
@@ -105,11 +106,16 @@ Partial Class formStore
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1231, 677)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1424, 861)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "formStore"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "formStore"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

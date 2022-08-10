@@ -41,6 +41,12 @@ Partial Class formAdminMStore
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtStoreName = New System.Windows.Forms.TextBox()
         Me.dgvStore = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtStoreIDReal = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.pbStorePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvStore, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,189 +54,311 @@ Partial Class formAdminMStore
         '
         'btnAddImage
         '
-        Me.btnAddImage.Location = New System.Drawing.Point(663, 437)
+        Me.btnAddImage.BackColor = System.Drawing.Color.Orange
+        Me.btnAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddImage.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddImage.Location = New System.Drawing.Point(467, 225)
         Me.btnAddImage.Name = "btnAddImage"
-        Me.btnAddImage.Size = New System.Drawing.Size(109, 23)
+        Me.btnAddImage.Size = New System.Drawing.Size(109, 38)
         Me.btnAddImage.TabIndex = 30
         Me.btnAddImage.Text = "ADD IMAGE"
-        Me.btnAddImage.UseVisualStyleBackColor = True
+        Me.btnAddImage.UseVisualStyleBackColor = False
         '
         'pbStorePic
         '
         Me.pbStorePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pbStorePic.ErrorImage = CType(resources.GetObject("pbStorePic.ErrorImage"), System.Drawing.Image)
         Me.pbStorePic.InitialImage = CType(resources.GetObject("pbStorePic.InitialImage"), System.Drawing.Image)
-        Me.pbStorePic.Location = New System.Drawing.Point(663, 270)
+        Me.pbStorePic.Location = New System.Drawing.Point(467, 73)
         Me.pbStorePic.Name = "pbStorePic"
-        Me.pbStorePic.Size = New System.Drawing.Size(204, 161)
+        Me.pbStorePic.Size = New System.Drawing.Size(330, 143)
         Me.pbStorePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbStorePic.TabIndex = 29
         Me.pbStorePic.TabStop = False
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(76, 403)
+        Me.btnRefresh.BackColor = System.Drawing.Color.Orange
+        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefresh.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.Location = New System.Drawing.Point(975, 573)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
+        Me.btnRefresh.Size = New System.Drawing.Size(106, 39)
         Me.btnRefresh.TabIndex = 28
         Me.btnRefresh.Text = "REFRESH"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.btnRefresh.UseVisualStyleBackColor = False
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(76, 365)
+        Me.btnDelete.BackColor = System.Drawing.Color.Orange
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(975, 519)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.Size = New System.Drawing.Size(106, 39)
         Me.btnDelete.TabIndex = 27
         Me.btnDelete.Text = "DELETE"
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(76, 322)
+        Me.btnUpdate.BackColor = System.Drawing.Color.Orange
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdate.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Location = New System.Drawing.Point(975, 463)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate.Size = New System.Drawing.Size(106, 39)
         Me.btnUpdate.TabIndex = 26
         Me.btnUpdate.Text = "UPDATE"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnInsert
         '
-        Me.btnInsert.Location = New System.Drawing.Point(76, 284)
+        Me.btnInsert.BackColor = System.Drawing.Color.Orange
+        Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInsert.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInsert.Location = New System.Drawing.Point(975, 408)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(75, 23)
+        Me.btnInsert.Size = New System.Drawing.Size(106, 39)
         Me.btnInsert.TabIndex = 25
         Me.btnInsert.Text = "ADD"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackgroundImage = CType(resources.GetObject("GroupBox1.BackgroundImage"), System.Drawing.Image)
+        Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtStoreSales)
         Me.GroupBox1.Controls.Add(Me.txtStoreLocation)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.txtStoreID)
         Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.btnAddImage)
         Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.pbStorePic)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtStoreContact)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtStoreName)
-        Me.GroupBox1.Location = New System.Drawing.Point(256, 261)
+        Me.GroupBox1.Font = New System.Drawing.Font("Poppins", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Control
+        Me.GroupBox1.Location = New System.Drawing.Point(88, 364)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(338, 278)
+        Me.GroupBox1.Size = New System.Drawing.Size(842, 278)
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Store Information"
         '
         'txtStoreSales
         '
-        Me.txtStoreSales.Location = New System.Drawing.Point(139, 197)
+        Me.txtStoreSales.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreSales.Location = New System.Drawing.Point(161, 231)
         Me.txtStoreSales.Name = "txtStoreSales"
-        Me.txtStoreSales.Size = New System.Drawing.Size(153, 20)
+        Me.txtStoreSales.ReadOnly = True
+        Me.txtStoreSales.Size = New System.Drawing.Size(153, 30)
         Me.txtStoreSales.TabIndex = 20
         '
         'txtStoreLocation
         '
-        Me.txtStoreLocation.Location = New System.Drawing.Point(139, 118)
+        Me.txtStoreLocation.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreLocation.Location = New System.Drawing.Point(161, 112)
+        Me.txtStoreLocation.Multiline = True
         Me.txtStoreLocation.Name = "txtStoreLocation"
-        Me.txtStoreLocation.Size = New System.Drawing.Size(153, 20)
+        Me.txtStoreLocation.Size = New System.Drawing.Size(221, 62)
         Me.txtStoreLocation.TabIndex = 19
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(40, 125)
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label9.Location = New System.Drawing.Point(40, 112)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.Size = New System.Drawing.Size(76, 26)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Location"
         '
         'txtStoreID
         '
-        Me.txtStoreID.Location = New System.Drawing.Point(139, 47)
+        Me.txtStoreID.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreID.Location = New System.Drawing.Point(161, 33)
         Me.txtStoreID.Name = "txtStoreID"
-        Me.txtStoreID.Size = New System.Drawing.Size(51, 20)
+        Me.txtStoreID.ReadOnly = True
+        Me.txtStoreID.Size = New System.Drawing.Size(51, 30)
         Me.txtStoreID.TabIndex = 13
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(40, 50)
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label7.Location = New System.Drawing.Point(40, 37)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 13)
+        Me.Label7.Size = New System.Drawing.Size(70, 26)
         Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Product ID"
+        Me.Label7.Text = "Store ID"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(41, 204)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label3.Location = New System.Drawing.Point(39, 231)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(33, 13)
+        Me.Label3.Size = New System.Drawing.Size(52, 26)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Sales"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(39, 164)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label2.Location = New System.Drawing.Point(37, 190)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(73, 26)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Contact"
         '
         'txtStoreContact
         '
-        Me.txtStoreContact.Location = New System.Drawing.Point(139, 156)
+        Me.txtStoreContact.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreContact.Location = New System.Drawing.Point(161, 186)
         Me.txtStoreContact.Name = "txtStoreContact"
-        Me.txtStoreContact.Size = New System.Drawing.Size(153, 20)
+        Me.txtStoreContact.Size = New System.Drawing.Size(153, 30)
         Me.txtStoreContact.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(40, 82)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(40, 73)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 13)
+        Me.Label1.Size = New System.Drawing.Size(57, 26)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Name"
         '
         'txtStoreName
         '
-        Me.txtStoreName.Location = New System.Drawing.Point(139, 79)
+        Me.txtStoreName.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreName.Location = New System.Drawing.Point(161, 69)
         Me.txtStoreName.Name = "txtStoreName"
-        Me.txtStoreName.Size = New System.Drawing.Size(153, 20)
+        Me.txtStoreName.Size = New System.Drawing.Size(153, 30)
         Me.txtStoreName.TabIndex = 0
         '
         'dgvStore
         '
         Me.dgvStore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvStore.Location = New System.Drawing.Point(62, 22)
+        Me.dgvStore.Location = New System.Drawing.Point(88, 116)
         Me.dgvStore.Name = "dgvStore"
         Me.dgvStore.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvStore.Size = New System.Drawing.Size(842, 220)
         Me.dgvStore.TabIndex = 23
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Firebrick
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Poppins", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Button1.Location = New System.Drawing.Point(1054, 21)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(27, 27)
+        Me.Button1.TabIndex = 45
+        Me.Button1.Text = "X"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Poppins", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(85, 21)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(295, 56)
+        Me.Label6.TabIndex = 44
+        Me.Label6.Text = "MANAGE STORES"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Poppins", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(532, 66)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(198, 34)
+        Me.Label5.TabIndex = 48
+        Me.Label5.Text = "SEARCH BY STOREID"
+        '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.Orange
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Font = New System.Drawing.Font("Poppins SemiBold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(837, 66)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(93, 32)
+        Me.btnSearch.TabIndex = 47
+        Me.btnSearch.Text = "SEARCH"
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
+        'txtStoreIDReal
+        '
+        Me.txtStoreIDReal.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStoreIDReal.Location = New System.Drawing.Point(760, 68)
+        Me.txtStoreIDReal.Name = "txtStoreIDReal"
+        Me.txtStoreIDReal.Size = New System.Drawing.Size(55, 30)
+        Me.txtStoreIDReal.TabIndex = 46
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Poppins", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label4.Location = New System.Drawing.Point(462, 37)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(109, 26)
+        Me.Label4.TabIndex = 31
+        Me.Label4.Text = "Store Banner"
+        '
         'formAdminMStore
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1300, 561)
-        Me.Controls.Add(Me.btnAddImage)
-        Me.Controls.Add(Me.pbStorePic)
+        Me.BackgroundImage = Global.CAS.My.Resources.Resources.Add_a_subheading__13_
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1125, 659)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.txtStoreIDReal)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.dgvStore)
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formAdminMStore"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "formAdminMStore"
         CType(Me.pbStorePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.dgvStore, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnAddImage As Button
@@ -251,4 +379,10 @@ Partial Class formAdminMStore
     Friend WithEvents dgvStore As DataGridView
     Friend WithEvents txtStoreSales As TextBox
     Friend WithEvents txtStoreLocation As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtStoreIDReal As TextBox
+    Friend WithEvents Label4 As Label
 End Class

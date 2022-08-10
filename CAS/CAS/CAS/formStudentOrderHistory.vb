@@ -1,15 +1,19 @@
-﻿Imports System.Data
+﻿''THIS FORM WAS CODED BY: SILVA, MATTHEW AND BAGASON, ALBERT
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 
 Public Class formStudentOrderHistory
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Private Sub formStudentOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load active orders
         loadActiveOrders()
+        'load complete orders
         loadCompletedOrders()
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        'Whenever a cell in the datagrid is clicked, the data of the record will be placed into corresponding controls
         Dim orderID As Integer = DataGridView1.CurrentRow.Cells(0).Value
         txtOrderID.Text = orderID
 
@@ -34,6 +38,7 @@ Public Class formStudentOrderHistory
             pbProd.Image = pbProd.ErrorImage
         End If
     End Sub
+    'get active orders table
     Sub loadActiveOrders()
         Try
             Dim sql As String
@@ -42,7 +47,8 @@ Public Class formStudentOrderHistory
             Dim da As New OleDbDataAdapter
             Dim userType As String = "Student"
             con.Open()
-            sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
+            'select everything from orderactive table with corresponding userid and usertype
+            sql = "Select * from ORDERactive WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
@@ -54,6 +60,7 @@ Public Class formStudentOrderHistory
         End Try
         con.Close()
     End Sub
+    'get complete orders table
     Sub loadCompletedOrders()
         Try
             Dim sql As String
@@ -62,6 +69,7 @@ Public Class formStudentOrderHistory
             Dim da As New OleDbDataAdapter
             Dim userType As String = "Student"
             con.Open()
+            'select everything from ordercomplete table with corresponding userid and usertype
             sql = "Select * from ORDERcomplete WHERE userID=" & Val(lblUserID.Text) & "AND userType ='" & userType & "'"
             cmd.Connection = con
             cmd.CommandText = sql
@@ -75,7 +83,9 @@ Public Class formStudentOrderHistory
         con.Close()
     End Sub
     Private Sub formAdminOrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'get active orders
         loadActiveOrders()
+        'get complete orders
         loadCompletedOrders()
     End Sub
 
@@ -84,6 +94,7 @@ Public Class formStudentOrderHistory
     End Sub
 
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        'Whenever a cell in the datagrid is clicked, the data of the record will be placed into corresponding controls
         Dim orderID As Integer = DataGridView2.CurrentRow.Cells(0).Value
         txtOrderID.Text = orderID
 
@@ -109,4 +120,8 @@ Public Class formStudentOrderHistory
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'close table
+        Me.Close()
+    End Sub
 End Class

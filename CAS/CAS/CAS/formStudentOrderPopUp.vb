@@ -1,11 +1,12 @@
-﻿Imports System.Data
+﻿''THIS FORM WAS CODED BY: DE GUZMAN, ANDREW
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 
 Public Class formStudentOrderPopUp
 
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
     Dim prodID, stID, studID As Integer
     Dim cmd As New OleDb.OleDbCommand
     Dim da As New OleDb.OleDbDataAdapter
@@ -26,24 +27,23 @@ Public Class formStudentOrderPopUp
 
     End Sub
     Private Sub formAdminOrderPopUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Dim total, price, qty As Integer
-
-
-
-
         lblID.Text = prodID
-
+        'load the info about the product from database
         Try
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
+            'select everything from producttbl with corresponding product id
             sql = "SELECT * FROM PRODUCTtbl WHERE productID=" & Val(prodID)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
 
             da.Fill(dt)
+            'put the record into corrresponding contols
             lblID.Text = dt.Rows(0)(1)
             lblName.Text = dt.Rows(0)(2)
             lblDesc.Text = dt.Rows(0)(3)
@@ -53,7 +53,7 @@ Public Class formStudentOrderPopUp
             pbProd1.Image = Image.FromStream(mstream)
 
 
-
+            'put the corresponding controls into corresponding variables
             qty = CInt(txtQty.Text)
             price = Int32.Parse(lblPrice.Text)
             total = price * qty
@@ -70,30 +70,44 @@ Public Class formStudentOrderPopUp
         Dim total, qty As Integer
         qty = txtQty.Text
 
+        'increase qty and price of product 
         qty += 1
         txtQty.Text = qty
 
+        'compute total price of product and output it
         total = lblPrice.Text * qty
         txtTotal.Text = total
 
     End Sub
 
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'CLOSE FORM
+        Me.Close()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'CLOSE FORM
+        Me.Close()
+    End Sub
+
+
     Private Sub btnSub_Click(sender As Object, e As EventArgs) Handles btnSub.Click
+
         Dim total, qty, price As Integer
         total = txtTotal.Text
-
+        'deduce qty and price of product
         price = CInt(lblPrice.Text)
         qty = txtQty.Text
         qty -= 1
+        'compute total price of product and output it
+        'verify the qty of the product
         If qty = 0 Then
+            'reset the qty and price
             MsgBox("Quantity must be greater than 0")
             qty = 1
             total = price
         Else
+            'deduce the price and qty
             txtQty.Text = qty
             total -= price
         End If
@@ -121,6 +135,7 @@ Public Class formStudentOrderPopUp
             Dim userType As String = "Student"
 
             con.Open()
+            'insert record into orreractive table with correrrsponding fields and values
             sql = "INSERT INTO ORDERactive([storeID],[prodID],[orderDate],[storeName],[prodName],[prodPrice],[prodTotalPrice],[prodQty],[userType],[userID],[prodPic]) 
                     VALUES (@storeID,@prodID,@orderDate,@storeName,@prodName,@prodPrice,@prodTotalPrice,@prodQty,@userType,@userID,@prodPic)"
             cmd.Parameters.Add(New OleDbParameter("@storeID", CType(stID, Integer))) 'variable passed on

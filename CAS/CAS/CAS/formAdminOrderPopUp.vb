@@ -1,9 +1,11 @@
-﻿Imports System.Data
+﻿'THIS FORM WAS CODED BY: URETA, KISSES
+Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
 Public Class formAdminOrderPopUp
-    'Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
-    Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    Dim con As New OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Documents\CASdb.accdb")
+    'Dim con As New OleDb.OleDbConnection(My.Settings.CASdbConnectionString)
+    'declarations for the image 
     Dim prodID, stID, adminID As Integer
     Dim cmd As New OleDb.OleDbCommand
     Dim da As New OleDb.OleDbDataAdapter
@@ -29,10 +31,7 @@ Public Class formAdminOrderPopUp
 
     Private Sub formAdminOrderPopUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim total, price, qty As Integer
-
-
-
-
+        'sets the product id
         lblID.Text = prodID
 
         Try
@@ -40,12 +39,14 @@ Public Class formAdminOrderPopUp
             Dim cmd As New OleDb.OleDbCommand
             Dim dt As New DataTable
             Dim da As New OleDbDataAdapter
+            'selects everything from the producttbl with the correpsonding productid
             sql = "SELECT * FROM PRODUCTtbl WHERE productID=" & Val(prodID)
             cmd.Connection = con
             cmd.CommandText = sql
             da.SelectCommand = cmd
 
             da.Fill(dt)
+            'puts the data from the dt to the correspnoding controls
             lblID.Text = dt.Rows(0)(1)
             lblName.Text = dt.Rows(0)(2)
             lblDesc.Text = dt.Rows(0)(3)
@@ -55,28 +56,40 @@ Public Class formAdminOrderPopUp
             pbProd1.Image = Image.FromStream(mstream)
 
 
-
             qty = CInt(txtQty.Text)
             price = Int32.Parse(lblPrice.Text)
             total = price * qty
 
-
             txtTotal.Text = total
-
         Catch ex As Exception
 
         End Try
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+
         Dim total, qty As Integer
         qty = txtQty.Text
-
+        'increase the qty of the product
         qty += 1
         txtQty.Text = qty
-
+        'increase the price as the qty increases
         total = lblPrice.Text * qty
         txtTotal.Text = total
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'closes the form
+        Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'closes the form
+        Me.Close()
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
 
     End Sub
 
@@ -88,41 +101,48 @@ Public Class formAdminOrderPopUp
         Dim total, qty, price As Integer
         total = txtTotal.Text
 
+        'reduces the quantity of the prpoduct
         price = CInt(lblPrice.Text)
         qty = txtQty.Text
         qty -= 1
+
+        'checks if the qty is = 0
         If qty = 0 Then
+            'prompt the user 
             MsgBox("Quantity must be greater than 0")
+            'reset the qty
             qty = 1
             total = price
         Else
+            'reduce the qty of the product as is
             txtQty.Text = qty
             total -= price
         End If
 
+        'update the total
         txtTotal.Text = total
     End Sub
 
     Private Sub btnOrder_Click(sender As Object, e As EventArgs) Handles btnOrder.Click
         Try
-            'pic code
-            Dim mstream As New System.IO.MemoryStream()
 
+            Dim mstream As New System.IO.MemoryStream()
+            'verify the image of the picturebox
             If pbProd1.Image Is Nothing Then
                 pbProd1.Image = pbProd1.ErrorImage
             End If
+            'save the image  of the picturebox
             pbProd1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             arrImage = mstream.GetBuffer()
             Dim FileSize As UInt32
             FileSize = mstream.Length
             mstream.Close()
-
-            'end of pic code
             Dim sql As String
             Dim cmd As New OleDb.OleDbCommand
             Dim userType As String = "Admin"
 
             con.Open()
+            'insert the record into the order active table with the corresponding fields
             sql = "INSERT INTO ORDERactive([storeID],[prodID],[orderDate],[storeName],[prodName],[prodPrice],[prodTotalPrice],[prodQty],[userType],[userID],[prodPic]) 
                     VALUES (@storeID,@prodID,@orderDate,@storeName,@prodName,@prodPrice,@prodTotalPrice,@prodQty,@userType,@userID,@prodPic)"
             cmd.Parameters.Add(New OleDbParameter("@storeID", CType(stID, Integer))) 'variable passed on
@@ -146,7 +166,7 @@ Public Class formAdminOrderPopUp
                 MsgBox("Order placed SUCCESSFULLY!")
                 Me.Close()
             Else
-                MsgBox("No record has been UPDATED!")
+                MsgBox("No order has been placed")
             End If
 
         Catch ex As Exception
